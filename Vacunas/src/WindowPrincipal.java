@@ -11,6 +11,8 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
+	private JLabel lblNombreHospital;
+	private JComboBox cbNombreHospital;
 
 	public static ArrayList<Hospital> listaHospitales;
 	
@@ -52,11 +54,18 @@ public class WindowPrincipal{
         lblNombreHospital.setForeground(Color.white);
         lblNombreHospital.setBounds(100, 200, 100, 50);
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
+
+		cbNombreHospital = new JComboBox<String>();
+        if(Hospital.numHospitales < 1){
+            JOptionPane.showConfirmDialog();
+        }
     }
 
 	static void crearHospitales(){
 		Hospital h1 = new Hospital("Cruz roja", 500, 50, "Monterrey", 0, 20);
 		listaHospitales.add(h1);
 	}
+
+	
 }
 
