@@ -10,10 +10,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Apache {
     //Código usado para crear el Excel la primera vez
-	public static void crearExcel() {
+	public static void crearExcel() {  
+        System.out.println("Dd");
+
 		XSSFWorkbook wb = new XSSFWorkbook();
         
-    //Crear un sheet
+        //Crear un sheet
 		XSSFSheet sheet = wb.createSheet("Hospitales");
 		
 		//Crear row
@@ -23,7 +25,7 @@ public class Apache {
 		Cell cell0 = row.createCell(0);
         cell0.setCellValue(9);
 
-
+        System.out.println("ola");
 
         try {
             FileOutputStream out = new FileOutputStream(new File("Datos.xlsx"));
@@ -35,5 +37,10 @@ public class Apache {
 
     }
 
+}
+
+public static void main(String[] args) {
+    System.out.println("KKK");
+    Apache.crearExcel();
 }
 }

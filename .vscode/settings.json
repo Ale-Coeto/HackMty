@@ -1,5 +1,6 @@
 {
     "java.project.referencedLibraries": [
+        
         "lib/**/*.jar",
         "Vacunas/lib/poi-5.2.3.jar",
         "Vacunas/lib/poi-examples-5.2.3.jar",
@@ -15,6 +16,7 @@
         "Vacunas/lib/slf4j-api-1.7.36.jar",
         "Vacunas/lib/curvesapi-1.07.jar",
         "Vacunas/lib/commons-compress-1.21.jar",
-        "Vacunas/lib/commons-logging-1.2.jar"
+        "Vacunas/lib/commons-logging-1.2.jar",
+       
     ]
 }
