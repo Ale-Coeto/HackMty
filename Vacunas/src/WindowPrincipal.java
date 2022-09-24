@@ -11,7 +11,8 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-	private static ArrayList<Hospital> listaHospitales;
+	
+	public static ArrayList<Hospital> listaHospitales;
 	
     private JLabel lblNombreHospital;
     
@@ -53,7 +54,7 @@ public class WindowPrincipal{
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
     }
 
-	void crearHospitales(){
+	static void crearHospitales(){
 		Hospital h1 = new Hospital("Cruz roja", 500, 50, "Monterrey");
 		listaHospitales.add(h1);
 	}
