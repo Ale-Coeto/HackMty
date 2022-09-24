@@ -61,7 +61,8 @@ public class WindowPrincipal{
             JOptionPane.showMessageDialog(frmPrincipal, "No hay hospitales disponibles.");
         } else{
 			for(int i =0 ; i < listaHospitales.size(); i++){
-				cbNombreHospital.add(listaHospitales.get(i).getNombre());
+				//cbNombreHospital.addItem(new Object(listaHospitales.get(i).getNombre()));
+				
 			}
 		}
     }
