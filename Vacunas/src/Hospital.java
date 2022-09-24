@@ -34,6 +34,10 @@ public class Hospital{
         return y;
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
 
      public static Hospital Solicitar(Hospital solicitante){
         ArrayList<Hospital> aceptablesH = new ArrayList<>();
