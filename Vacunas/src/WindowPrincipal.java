@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Color;
 
 
@@ -8,6 +10,7 @@ public class WindowPrincipal {
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
+    private JLabel lblNombreHospital;
     
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -23,10 +26,6 @@ public class WindowPrincipal {
 	}
 
 	public WindowPrincipal() {
-		primerPanel();
-	}
-
-    public void primerPanel(){
         frmPrincipal = new JFrame();
 		frmPrincipal.setSize(1000, 700);
 		frmPrincipal.setResizable(false);
@@ -34,10 +33,21 @@ public class WindowPrincipal {
 		frmPrincipal.setForeground(Color.black);
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		primerPanel();
+	}
+
+    public void primerPanel(){
         panelPrincipal = new JPanel();
         panelPrincipal.setBounds(403, 380, 80, 30);
 		panelPrincipal.setBackground(Color.black);
+        panelPrincipal.setLayout(null);
 		frmPrincipal.getContentPane().add(panelPrincipal);
+
+        lblNombreHospital = new JLabel("Hospital");
+        panelPrincipal.add(lblNombreHospital);
+        lblNombreHospital.setForeground(Color.white);
+        lblNombreHospital.setBounds(100, 200, 100, 50);
+        lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
     }
 }
 
