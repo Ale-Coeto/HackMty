@@ -2,11 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.EventQueue;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.awt.Font;
->>>>>>> 438fac496044e7addd9db5abde213765885c45db
 import java.awt.Color;
 
 
@@ -14,12 +11,9 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-<<<<<<< HEAD
 	private static ArrayList<Hospital> listaHospitales;
 	
-=======
     private JLabel lblNombreHospital;
->>>>>>> 438fac496044e7addd9db5abde213765885c45db
     
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
