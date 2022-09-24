@@ -1,5 +1,7 @@
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.EventQueue;
 import java.util.ArrayList;
@@ -16,7 +18,6 @@ public class WindowPrincipal{
 
 	public static ArrayList<Hospital> listaHospitales;
 	
-    private JLabel lblNombreHospital;
     
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,9 +57,13 @@ public class WindowPrincipal{
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		cbNombreHospital = new JComboBox<String>();
-        if(Hospital.numHospitales < 1){
-            JOptionPane.showConfirmDialog();
-        }
+        if(listaHospitales.size() < 1){
+            JOptionPane.showMessageDialog(frmPrincipal, "No hay hospitales disponibles.");
+        } else{
+			for(int i =0 ; i < listaHospitales.size(); i++){
+				cbNombreHospital.add(listaHospitales.get(i).getNombre());
+			}
+		}
     }
 
 	static void crearHospitales(){
