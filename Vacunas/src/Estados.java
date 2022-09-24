@@ -4,8 +4,8 @@ public class Estados extends Hospital{
     String EstadodelEstado;
     String NombreEstado1;
     //Coordenadas
-    public Estados(String){
+    // public Estados(String){
 
-    }
+    // }
      
 }
