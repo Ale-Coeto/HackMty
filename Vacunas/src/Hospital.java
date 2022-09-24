@@ -4,16 +4,16 @@ public class Hospital{
     int vacunas;
     //double [] coordenadas;
     int solicitudes;
-    String NombreEstado2;
-    String Estado;
+    String nombreEstado2;
+    String estado;
     //Metodo Constructor
     public Hospital(String nombre,int vacunas,int solicitudes, String NombreEstado2 ){
         this.nombre=nombre;
         this.colchon=solicitudes*1.2;
         this.vacunas=vacunas;
         //this.coordenadas=coordenadas;
-        this.Estado=Estado;
-        this.NombreEstado2=NombreEstado2;
+       // this.estado=Estado;
+        this.nombreEstado2=NombreEstado2;
     }
     // public static String Solicitar(){
 

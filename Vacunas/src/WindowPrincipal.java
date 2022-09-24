@@ -1,13 +1,16 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.awt.Color;
 
 
-public class WindowPrincipal {
+public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
+	private static ArrayList<Hospital> listaHospitales;
+	
     
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -39,5 +42,10 @@ public class WindowPrincipal {
 		panelPrincipal.setBackground(Color.black);
 		frmPrincipal.getContentPane().add(panelPrincipal);
     }
+
+	void crearHospitales(){
+		Hospital h1 = new Hospital("Cruz roja", 500, 50, "Monterrey");
+		listaHospitales.add(h1);
+	}
 }
 
