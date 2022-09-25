@@ -1,14 +1,19 @@
 import java.util.ArrayList;
 
-public class Estados extends Hospital{
+public class Estados{
    
+    public Estados(String nombre, String estatus) {
+        this.nombreEstado = nombre;
+        this.estatus = estatus;
+    }
+
     static ArrayList<Hospital> nombresdeHospitales = new ArrayList<>();
-    static String estatus;
-    String NombreEstado1;
+     String estatus;
+    String nombreEstado;
     int CantidadQPuedeDonar;
 
     //Se necesita para checar el estatus del estado, se necesitaria despues del constructor.
-    public static String checarEstatus(){
+    public  String checarEstatus(){
         int CantidadQPuedeDonar=0;
         estatus="Available";
         for(int i=0;i<nombresdeHospitales.size();i++){
