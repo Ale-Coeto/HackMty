@@ -13,7 +13,7 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-	private JLabel lblNombreHospital;
+	private JLabel lblNombreHospital, lblSolicitar;
 	private JComboBox<String> cbNombreHospital;
 
 	public static ArrayList<Hospital> listaHospitales;
@@ -52,11 +52,11 @@ public class WindowPrincipal{
         panelPrincipal.setLayout(null);
 		frmPrincipal.getContentPane().add(panelPrincipal);
 
-        lblNombreHospital = new JLabel("Hospital");
+        lblNombreHospital = new JLabel("Hospital:");
         panelPrincipal.add(lblNombreHospital);
         lblNombreHospital.setForeground(Color.white);
-        lblNombreHospital.setBounds(100, 200, 100, 50);
-        lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        lblNombreHospital.setBounds(100, 200, 200, 50);
+        lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 30));
 
 		//crearHospitales();
 		cbNombreHospital = new JComboBox<String>();
@@ -73,8 +73,15 @@ public class WindowPrincipal{
 		}
 		cbNombreHospital.setVisible(true);
 		cbNombreHospital.setSelectedIndex(0);
-		cbNombreHospital.setBounds(210, 120, 200, 30);
+		cbNombreHospital.setBounds(250, 200, 300, 60);
+		cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 25));
 		panelPrincipal.add(cbNombreHospital);
+
+		lblSolicitar = new JLabel("Solicitar:");
+		panelPrincipal.add(lblSolicitar);
+		lblSolicitar.setForeground(Color.white);
+		lblSolicitar.setBounds(100, 500, 200, 50);
+		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
     }
 
 	public static void crearHospitales(){
