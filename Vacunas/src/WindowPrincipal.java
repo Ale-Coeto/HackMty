@@ -226,17 +226,29 @@ public class WindowPrincipal{
 		Hospital h2 = new Hospital("Miguel Alemán", 60, 10, "Saltillo", 100, 5.2);
 		listaHospitales.add(h2);
 
-		Hospital h3 = new Hospital("Centro de salud", 340, 300, "Monterrey", 10.4, 15);
+		Hospital h3 = new Hospital("Centro salud", 340, 300, "Monterrey", 10.4, 15);
 		listaHospitales.add(h3);
 
 		Hospital h4 = new Hospital("Cruz Roja", 10, 100, "Saltillo", 260, 100);
 		listaHospitales.add(h4);
 
-		Hospital h5 = new Hospital("Doctor Hospital", 400, 280, "CD Mx", 90, 50);
+		Hospital h5 = new Hospital("Doctors", 400, 280, "CD Mx", 90, 50);
 		listaHospitales.add(h5);
 
-		Hospital h6 = new Hospital("Hospital San Gerardo", 400, 280, "CD Mx", 170, 30);
+		Hospital h6 = new Hospital("San Gerardo", 400, 280, "CD Mx", 170, 30);
 		listaHospitales.add(h6);
+
+		Hospital h7 = new Hospital("H Sur", 400, 280, "CD Mx", 270, 380);
+		listaHospitales.add(h7);
+
+		Hospital h8 = new Hospital("Clínica", 400, 280, "CD Mx", 270, 380);
+		listaHospitales.add(h8);
+
+		Hospital h9 = new Hospital("Felipe C", 400, 280, "CD Mx", 170, 280);
+		listaHospitales.add(h9);
+
+		Hospital h10 = new Hospital("Tec", 400, 280, "CD Mx", 70, 380);
+		listaHospitales.add(h10);
 
 		//ArrayList<Hospital> lista = Hospital.Solicitar(h3);
 		//System.out.println("Lista: " + lista.get(0).getNombre());
