@@ -1,9 +1,11 @@
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.EtchedBorder;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -25,14 +27,14 @@ public class WindowResultado extends JFrame{
     private static JPanel panelPrincipal;
     private static JPanel panelMapa;
     private static JLabel lblTitulo, lblSolicitarA, lblMapa;
-    private static JTextArea txtDonadores;
+    private static JTextArea txtDonadores, txtDonadoresHeading;
     private static ImageIcon mapa;
     private static JButton btnClose;
 
 
 
      WindowResultado(ArrayList<Hospital> donadores, Hospital solicitante){
-        this.setBounds(0,0,650,500);
+        this.setBounds(0,0,650,600);
 		this.setLayout(null);
 		this.setVisible(true);
 		this.setTitle("Donadores");
@@ -48,7 +50,7 @@ public class WindowResultado extends JFrame{
 		// frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         panelPrincipal = new JPanel();
-        panelPrincipal.setBounds(0, 0, 650, 800);
+        panelPrincipal.setBounds(0, 0, 650, 600);
 		panelPrincipal.setBackground(Color.white);
         panelPrincipal.setLayout(null);
         panelPrincipal.setVisible(true);
@@ -58,17 +60,26 @@ public class WindowResultado extends JFrame{
         lblTitulo.setBounds(100, 40, 200, 50);
         //lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
-        lblTitulo.setForeground(new Color(0x272727));
+        lblTitulo.setForeground(new Color(0x333333));
         panelPrincipal.add(lblTitulo);
 
 
         lblSolicitarA = new JLabel("Solicitar a: ");
         panelPrincipal.add(lblTitulo);
         lblSolicitarA.setBounds(100, 100, 80, 50);
-        lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
 
-        txtDonadores = new JTextArea();
-        txtDonadores.setBounds(100, 100, 280, 90);
+        txtDonadoresHeading = new JTextArea("Hospital\t\tVacunas \t Distancia");
+        txtDonadoresHeading.setBounds(100, 110, 450, 25);
+        txtDonadoresHeading.setFont(new Font("Arial", Font.BOLD, 15));
+        txtDonadoresHeading.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+        txtDonadoresHeading.setEditable(false);
+        //txtDonadoresHeading.setBackground(new Color(0xBABABA));
+        panelPrincipal.add(txtDonadoresHeading);
+
+        txtDonadores = new JTextArea("");
+        txtDonadores.setBounds(100, 135, 450, 90);
+        txtDonadores.setFont(new Font("Arial", Font.PLAIN, 15));
+        txtDonadores.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         txtDonadores.setEditable(false);
         
         btnClose = new JButton("Cerrar");
@@ -84,18 +95,18 @@ public class WindowResultado extends JFrame{
 		panelPrincipal.add(btnClose);
        
 
-        String txt = "Hospital \t Vacunas \t Distancia \n";
+        String txt = "";
         for(int i = 0; i < donadores.size(); i++){
-            txt += donadores.get(i).getNombre() + "\t";
-            System.out.println("donadores " + donadores.get(i).getNombre() + " "+donadores.get(i).getX());
-            System.out.println(solicitante.getNombre() + " s " + solicitante.getX());
+            txt += donadores.get(i).getNombre() + "  \t\t  ";
+            //System.out.println("donadores " + donadores.get(i).getNombre() + " "+donadores.get(i).getX());
+            //System.out.println(solicitante.getNombre() + " s " + solicitante.getX());
 
             double distancia = Hospital.getDistancia(solicitante, donadores.get(i));
 
             distancia = Math.round(distancia*100.0)/100.0;
-            System.out.println(Double.toString(distancia));
-            txt += (Integer.toString(donadores.get(i).getDonacion())+ "\t");
-            txt += (Double.toString(distancia) + "\n");
+            //System.out.println(Double.toString(distancia));
+            txt += "   " + (Integer.toString(donadores.get(i).getDonacion())+ "\t  ");
+            txt += "     " + (Double.toString(distancia) + "\n");
 
 
         }
@@ -117,10 +128,37 @@ public class WindowResultado extends JFrame{
 		lblMapa.setBounds(0, 0, 300,200);
         Image mapa = new ImageIcon(this.getClass().getResource("/mapa.png")).getImage();
 		//lblMapa.setIcon(mapa);
-        lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(300, 200,  java.awt.Image.SCALE_SMOOTH)));
+
+        lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(400, 300,  java.awt.Image.SCALE_SMOOTH)));
         lblMapa.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblMapa.setBackground(Color.CYAN);
-		panelMapa.add(lblMapa);
+		panelMapa.add(lblMapa, 0);
+
+        for (int i = 0; i < WindowPrincipal.listaHospitales.size(); i++){
+        JPanel punto = new JPanel();
+        punto.setBackground(Color.black);
+        punto.setLayout(null);
+        punto.setBounds(100 + (int)WindowPrincipal.listaHospitales.get(i).getX(),400,6,6);
+        panelPrincipal.add(punto, 1);
+
+        }
+        
+
+        for (int i= 0; i < donadores.size(); i++){
+        JPanel punto = new JPanel();
+        punto.setBackground(Color.blue);
+        punto.setLayout(null);
+        punto.setBounds(100 + (int)donadores.get(i).getX(),400,6,6);
+        
+        panelPrincipal.add(punto, 2);
+        }
+
+        JPanel punto = new JPanel();
+        punto.setBackground(Color.green);
+        punto.setLayout(null);
+        punto.setBounds(100 + (int)solicitante.getX(),(int)solicitante.getY(),6,6);
+        
+        panelPrincipal.add(punto, 2);
 
      }
     
