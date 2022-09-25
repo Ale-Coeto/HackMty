@@ -3,9 +3,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 
 
@@ -15,6 +18,7 @@ public class WindowPrincipal{
     private JPanel panelPrincipal;
 	private JLabel lblNombreHospital, lblSolicitar;
 	private JComboBox<String> cbNombreHospital;
+	private JTextField tfVacunas;
 
 	public static ArrayList<Hospital> listaHospitales;
 	
@@ -65,23 +69,40 @@ public class WindowPrincipal{
 				System.out.println("Nel");
 			} else{
 				System.out.println("Siu");
-
 				for(int i = 0 ; i < listaHospitales.size(); i++){
 					cbNombreHospital.addItem(listaHospitales.get(i).getNombre());
 					
 				}
-		}
-		cbNombreHospital.setVisible(true);
-		cbNombreHospital.setSelectedIndex(0);
-		cbNombreHospital.setBounds(250, 200, 300, 60);
-		cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 25));
-		panelPrincipal.add(cbNombreHospital);
+				cbNombreHospital.setVisible(true);
+				cbNombreHospital.setSelectedIndex(0);
+				cbNombreHospital.setBounds(250, 200, 300, 60);
+				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 25));
+				panelPrincipal.add(cbNombreHospital);
+				
+				cbNombreHospital.addActionListener(new ActionListener(){
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String nombre = cbNombreHospital.getSelectedItem().toString();
+						Hospital temp = buscarHospital(nombre);
+						tfVacunas.setText("" + temp.getVacunas());
+						
+					}
+				});
+				
+			}
+		
 
 		lblSolicitar = new JLabel("Solicitar:");
 		panelPrincipal.add(lblSolicitar);
 		lblSolicitar.setForeground(Color.white);
 		lblSolicitar.setBounds(100, 500, 200, 50);
 		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
+
+		tfVacunas = new JTextField();
+		panelPrincipal.add(tfVacunas);
+		tfVacunas.setBounds(150, 600, 150, 50);
+		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+		tfVacunas.setEditable(true);
     }
 
 	public static void crearHospitales(){
@@ -90,6 +111,16 @@ public class WindowPrincipal{
 		listaHospitales.add(h1);
 		Hospital h2 = new Hospital("Coet", 600, 100, "Saltillo", 30, 15);
 		listaHospitales.add(h2);
+	}
+
+	public static Hospital buscarHospital(String nombre){
+		for(int i = 0; i < listaHospitales.size(); i++) {
+			if(listaHospitales.get(i).getNombre().equals(nombre)) {
+				Hospital temp = listaHospitales.get(i);
+				return temp;
+			}
+		}
+		return null;
 	}
 
 	
