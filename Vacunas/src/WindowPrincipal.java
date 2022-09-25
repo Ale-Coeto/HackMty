@@ -16,7 +16,7 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-	private JLabel lblNombreHospital, lblSolicitar;
+	private JLabel lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 
@@ -69,6 +69,7 @@ public class WindowPrincipal{
 				System.out.println("Nel");
 			} else{
 				System.out.println("Siu");
+				cbNombreHospital.addItem("");
 				for(int i = 0 ; i < listaHospitales.size(); i++){
 					cbNombreHospital.addItem(listaHospitales.get(i).getNombre());
 					
@@ -85,7 +86,8 @@ public class WindowPrincipal{
 						String nombre = cbNombreHospital.getSelectedItem().toString();
 						Hospital temp = buscarHospital(nombre);
 						tfVacunas.setText("" + temp.getVacunas());
-						
+						lblVacunas.setText("Vacunas: " + temp.getVacunas());
+						lblEstatus.setText("Estatus: " + temp.getEstatus());
 					}
 				});
 				
@@ -95,14 +97,26 @@ public class WindowPrincipal{
 		lblSolicitar = new JLabel("Solicitar:");
 		panelPrincipal.add(lblSolicitar);
 		lblSolicitar.setForeground(Color.white);
-		lblSolicitar.setBounds(100, 500, 200, 50);
+		lblSolicitar.setBounds(100, 550, 200, 50);
 		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
 
 		tfVacunas = new JTextField();
 		panelPrincipal.add(tfVacunas);
-		tfVacunas.setBounds(150, 600, 150, 50);
+		tfVacunas.setBounds(300, 550, 150, 50);
 		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 		tfVacunas.setEditable(true);
+
+		lblVacunas = new JLabel("");
+		panelPrincipal.add(lblVacunas);
+		lblVacunas.setForeground(Color.white);
+		lblVacunas.setBounds(300, 300, 200, 50);
+		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+
+		lblEstatus = new JLabel("");
+		panelPrincipal.add(lblEstatus);
+		lblEstatus.setForeground(Color.white);
+		lblEstatus.setBounds(600, 300, 200, 50);
+		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 25));
     }
 
 	public static void crearHospitales(){
