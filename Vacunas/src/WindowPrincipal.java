@@ -21,6 +21,7 @@ public class WindowPrincipal{
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
+	WindowResultado frmResultado;
 
 	public static ArrayList<Hospital> listaHospitales;
 	
@@ -46,7 +47,7 @@ public class WindowPrincipal{
 		frmPrincipal.setForeground(Color.black);
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		crearHospitales();
+		crearHospitales();      
 
 		primerPanel();
 	}
@@ -90,6 +91,7 @@ public class WindowPrincipal{
 						Hospital temp = buscarHospital(nombre);
 						lblVacunas.setText("Vacunas: " + temp.getVacunas());
 						lblEstatus.setText("Estatus: " + temp.getEstatus());
+
 					}
 				});
 				
@@ -131,7 +133,15 @@ public class WindowPrincipal{
 		btnSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 20));
 		btnSolicitar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				String nombre = cbNombreHospital.getSelectedItem().toString();
+						Hospital temp = buscarHospital(nombre);
+						temp.setSolicitudes(Integer.parseInt(tfVacunas.getText()));
 				System.out.println("vacunas: " + tfVacunas.getText());
+
+				ArrayList<Hospital> lista = Hospital.Solicitar(temp);
+
+				frmResultado = new WindowResultado(lista, temp);
+
 			}
 		});
 		btnSolicitar.setActionCommand("newProduct");
@@ -146,12 +156,15 @@ public class WindowPrincipal{
 			
 		Hospital h2 = new Hospital("Coet", 60, 10, "Saltillo", 100, 5);
 		listaHospitales.add(h2);
+
 		Hospital h3 = new Hospital("DR Andrik", 50, 300, "Monterrey", 10, 15);
 		listaHospitales.add(h3);
 
+		Hospital h4 = new Hospital("San José", 100, 10, "Saltillo", 0, 100);
 
-		ArrayList<Hospital> lista = Hospital.Solicitar(h3);
-		System.out.println("Lista: " + lista.get(0).getNombre());
+
+		//ArrayList<Hospital> lista = Hospital.Solicitar(h3);
+		//System.out.println("Lista: " + lista.get(0).getNombre());
 		//System.out.println("Lista: " + lista.get(1).getNombre());
 
 		

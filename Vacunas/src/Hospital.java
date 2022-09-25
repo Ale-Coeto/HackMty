@@ -70,6 +70,7 @@ public class Hospital{
         return necesidad;
     }
 
+
     public static double getDistancia(Hospital hospital1, Hospital hospital2){
         return Math.sqrt(Math.pow(hospital1.getX()-hospital2.getX(), 2) + Math.pow(hospital1.getY()-hospital2.getY(), 2));
          
@@ -82,6 +83,10 @@ public class Hospital{
 
     public void setColchon(int colchon){
         this.colchon = colchon;
+    }
+
+    public void setSolicitudes(int solicitudes){
+        this.solicitudes = solicitudes;
     }
 
     
@@ -125,7 +130,7 @@ public class Hospital{
     }
 
     //Método para retornar los hospitales que pueden donar y mantener su colchón
-    public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD, Hospital solicitate){
+    public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD, Hospital solicitante){
 
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
         int CantidadDonacion = 0;
@@ -136,17 +141,17 @@ public class Hospital{
             aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
             HospitalesQDonaron.add(aceptablesH.get(i));
 
-            if(CantidadDonacion>= solicitate.getNecesidad()){
+            if(CantidadDonacion>= solicitante.getNecesidad()){
                 System.out.println("Se obtuvo el numero esperado ");
                 break;
             }
         }
 
-        if(CantidadDonacion<solicitate.getNecesidad()){
+        if(CantidadDonacion<solicitante.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
             return HospitalesQDonaron;
         }
-        System.out.println("Estos son los hospitales que donaron: ");
+        System.out.println("Estos son los hospitales que donaron: " + HospitalesQDonaron.get(0).getNombre());
         return HospitalesQDonaron;
     } 
     
