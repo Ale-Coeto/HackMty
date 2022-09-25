@@ -175,6 +175,7 @@ public class Hospital{
 
         if(CantidadDonacion<solicitante.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
+            
             WindowPrincipal.alert();
             return HospitalesQDonaron;
 
