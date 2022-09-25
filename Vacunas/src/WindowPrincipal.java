@@ -5,6 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import org.w3c.dom.css.RGBColor;
+
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.awt.Font;
@@ -23,6 +26,7 @@ public class WindowPrincipal{
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
 	WindowResultado frmResultado;
+	//private Font = new Font();
 
 	public static ArrayList<Hospital> listaHospitales;
 	
@@ -56,13 +60,13 @@ public class WindowPrincipal{
     public void primerPanel(){
         panelPrincipal = new JPanel();
         panelPrincipal.setBounds(0, 0, 1000, 700);
-		panelPrincipal.setBackground(Color.black);
+		panelPrincipal.setBackground(Color.white);
         panelPrincipal.setLayout(null);
 		frmPrincipal.getContentPane().add(panelPrincipal);
 
 		lblTitulo = new JLabel("Distribución de Vacunas");
 		panelPrincipal.add(lblTitulo);
-        lblTitulo.setForeground(Color.white);
+        lblTitulo.setForeground(new Color(0x2A2A2A));
         lblTitulo.setBounds(100, 50, 1000, 50);
 		lblTitulo.setBackground(Color.gray);
         lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
