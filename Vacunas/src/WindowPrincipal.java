@@ -23,7 +23,7 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal, panelDiseño1, panelCombo;
-	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus, lblCantVacunas;
+	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
@@ -116,7 +116,7 @@ public class WindowPrincipal{
 						Hospital temp = buscarHospital(nombre);
 						lblVacunas.setText("Vacunas: " + temp.getVacunas());
 						lblEstatus.setText("Estatus: " + temp.getEstatus());
-
+						lblSolicitudes.setText("Solicitantes: " + temp.getSolicitudes());
 
 					}
 				});
@@ -129,7 +129,6 @@ public class WindowPrincipal{
 		lblSolicitar.setForeground(Color.black);
 		lblSolicitar.setBounds(100, 550, 200, 50);
 		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
-		
 
 		tfVacunas = new JTextField();
 		panelPrincipal.add(tfVacunas);
@@ -137,11 +136,17 @@ public class WindowPrincipal{
 		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 		tfVacunas.setEditable(true);
 
-		lblVacunas = new JLabel("");
+		lblVacunas = new JLabel("Vacunas:");
 		panelPrincipal.add(lblVacunas);
 		lblVacunas.setForeground(Color.black);
-		lblVacunas.setBounds(250, 300, 200, 50);
+		lblVacunas.setBounds(100, 300, 200, 50);
 		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+
+		lblSolicitudes = new JLabel("Solicitudes:");
+		panelPrincipal.add(lblSolicitudes);
+		lblSolicitudes.setForeground(Color.black);
+		lblSolicitudes.setBounds(350, 300, 200, 50);
+		lblSolicitudes.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		lblCantVacunas = new JLabel("vacunas");
 		panelPrincipal.add(lblCantVacunas);
@@ -149,10 +154,10 @@ public class WindowPrincipal{
 		lblCantVacunas.setBounds(470, 550, 200, 50);
 		lblCantVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
-		lblEstatus = new JLabel("");
+		lblEstatus = new JLabel("Estatus:");
 		panelPrincipal.add(lblEstatus);
 		lblEstatus.setForeground(Color.black);
-		lblEstatus.setBounds(600, 300, 300, 50);
+		lblEstatus.setBounds(640, 300, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		btnSolicitar = new JButton("Solicitar");
