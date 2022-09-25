@@ -14,7 +14,7 @@ public class WindowPrincipal{
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
 	private JLabel lblNombreHospital;
-	private JComboBox cbNombreHospital;
+	private JComboBox<String> cbNombreHospital;
 
 	public static ArrayList<Hospital> listaHospitales;
 	
@@ -40,6 +40,8 @@ public class WindowPrincipal{
 		frmPrincipal.setForeground(Color.black);
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		crearHospitales();
+
 		primerPanel();
 	}
 
@@ -56,20 +58,31 @@ public class WindowPrincipal{
         lblNombreHospital.setBounds(100, 200, 100, 50);
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
+		//crearHospitales();
 		cbNombreHospital = new JComboBox<String>();
-        if(listaHospitales.size() < 1){
-            JOptionPane.showMessageDialog(frmPrincipal, "No hay hospitales disponibles.");
-        } else{
-			for(int i =0 ; i < listaHospitales.size(); i++){
-				//cbNombreHospital.addItem(new Object(listaHospitales.get(i).getNombre()));
-				
-			}
+			if(listaHospitales.size() < 1){
+				JOptionPane.showMessageDialog(frmPrincipal, "No hay hospitales disponibles.");
+				System.out.println("Nel");
+			} else{
+				System.out.println("Siu");
+
+				for(int i = 0 ; i < listaHospitales.size(); i++){
+					cbNombreHospital.addItem(listaHospitales.get(i).getNombre());
+					
+				}
 		}
+		cbNombreHospital.setVisible(true);
+		cbNombreHospital.setSelectedIndex(0);
+		cbNombreHospital.setBounds(210, 120, 200, 30);
+		panelPrincipal.add(cbNombreHospital);
     }
 
-	static void crearHospitales(){
+	public static void crearHospitales(){
+		listaHospitales = new ArrayList<Hospital>();
 		Hospital h1 = new Hospital("Cruz roja", 500, 50, "Monterrey", 0, 20);
 		listaHospitales.add(h1);
+		Hospital h2 = new Hospital("Coet", 600, 100, "Saltillo", 30, 15);
+		listaHospitales.add(h2);
 	}
 
 	
