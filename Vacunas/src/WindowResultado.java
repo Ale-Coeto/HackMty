@@ -139,7 +139,7 @@ public class WindowResultado extends JFrame{
         JPanel punto = new JPanel();
         punto.setBackground(Color.black);
         punto.setLayout(null);
-        punto.setBounds(100 + (int)WindowPrincipal.listaHospitales.get(i).getX(),400,6,6);
+        punto.setBounds(100 + (int)WindowPrincipal.listaHospitales.get(i).getX(),(int)WindowPrincipal.listaHospitales.get(i).getY(),6,6);
         panelPrincipal.add(punto, 1);
 
         }
@@ -149,7 +149,7 @@ public class WindowResultado extends JFrame{
         JPanel punto = new JPanel();
         punto.setBackground(Color.blue);
         punto.setLayout(null);
-        punto.setBounds(100 + (int)donadores.get(i).getX(),400,6,6);
+        punto.setBounds(100 + (int)donadores.get(i).getX(),(int)donadores.get(i).getX(),6,6);
         
         panelPrincipal.add(punto, 2);
         }
