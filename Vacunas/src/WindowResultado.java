@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -112,7 +113,9 @@ public class WindowResultado extends JFrame{
 
 		lblMapa = new JLabel("cooo");
 		lblMapa.setBounds(0, 0, 300,200);
+        Image mapa = new ImageIcon(this.getClass().getResource("/mapa.png")).getImage();
 		//lblMapa.setIcon(mapa);
+        lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(300, 200,  java.awt.Image.SCALE_SMOOTH)));
         lblMapa.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblMapa.setBackground(Color.CYAN);
 		panelMapa.add(lblMapa);
