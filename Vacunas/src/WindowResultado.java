@@ -68,8 +68,8 @@ public class WindowResultado extends JFrame{
         txtDonadores.setBounds(100, 100, 280, 90);
         
         btnClose = new JButton("Cerrar");
-        btnClose.setBounds(400, 300, 120, 25);
-		btnClose.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        btnClose.setBounds(450, 400, 120, 25);
+		//btnClose.setFont(new Font("Helvetica", Font.PLAIN, 20));
 		btnClose.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
