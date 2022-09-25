@@ -118,13 +118,12 @@ public class WindowPrincipal{
 		panelPrincipal.add(tfVacunas);
 		tfVacunas.setBounds(300, 550, 150, 50);
 		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
-		
 		tfVacunas.setEditable(true);
 
 		lblVacunas = new JLabel("");
 		panelPrincipal.add(lblVacunas);
 		lblVacunas.setForeground(Color.white);
-		lblVacunas.setBounds(300, 300, 200, 50);
+		lblVacunas.setBounds(250, 300, 200, 50);
 		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		lblCantVacunas = new JLabel("vacunas");
@@ -136,7 +135,7 @@ public class WindowPrincipal{
 		lblEstatus = new JLabel("");
 		panelPrincipal.add(lblEstatus);
 		lblEstatus.setForeground(Color.white);
-		lblEstatus.setBounds(650, 300, 200, 50);
+		lblEstatus.setBounds(600, 300, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		btnSolicitar = new JButton("Solicitar");
