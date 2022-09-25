@@ -123,10 +123,20 @@ public class WindowPrincipal{
 
 	public static void crearHospitales(){
 		listaHospitales = new ArrayList<Hospital>();
-		Hospital h1 = new Hospital("Cruz roja", 500, 50, "Monterrey", 0, 20);
+		Hospital h1 = new Hospital("Cruz roja", 400, 20, "Monterrey", 10, 200);
 		listaHospitales.add(h1);
-		Hospital h2 = new Hospital("Coet", 600, 100, "Saltillo", 30, 15);
+			
+		Hospital h2 = new Hospital("Coet", 60, 10, "Saltillo", 100, 5);
 		listaHospitales.add(h2);
+		Hospital h3 = new Hospital("DR Andrik", 50, 300, "Monterrey", 10, 15);
+		listaHospitales.add(h3);
+
+
+		ArrayList<Hospital> lista = Hospital.Solicitar(h3);
+		System.out.println("Lista: " + lista.get(0).getNombre());
+		//System.out.println("Lista: " + lista.get(1).getNombre());
+
+		
 	}
 
 	public static Hospital buscarHospital(String nombre){

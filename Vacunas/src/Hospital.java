@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+//import org.apache.commons.math3.optim.linear.SolutionCallback;
+
 //Objeto Hospital
 public class Hospital{
     //Atributos
@@ -15,14 +17,28 @@ public class Hospital{
 
     //Metodo Constructor
     public Hospital(String nombre,int vacunas,int solicitudes, String NombreEstado2, double x, double y){
-        this.nombre=nombre;
-        this.colchon=solicitudes + solicitudes/20;
-        this.vacunas=vacunas;
-        this.nombreEstado2=NombreEstado2;
+        this.nombre = nombre;
+        this.colchon = solicitudes + solicitudes/20;
+        this.vacunas = vacunas;
+        this.solicitudes = solicitudes;
+        this.nombreEstado2 = NombreEstado2;
         this.x = x;
         this.y = y;
-        this.necesidad=solicitudes-vacunas;
+        this.necesidad = solicitudes-vacunas;
+
+        setEstatus();
     }
+
+
+    private void setEstatus() {
+        if(solicitudes < vacunas){
+            this.estatus = "Available";
+
+        }else {
+            this.estatus = "Not Available";
+        }
+    }
+
 
     //Getters
     public String getEstatus(){
@@ -77,10 +93,12 @@ public class Hospital{
         //Lista de hospitales que pueden donar
         for(int i = 0; i < WindowPrincipal.listaHospitales.size(); i++){
             Hospital opcion = WindowPrincipal.listaHospitales.get(i);
+
             if (opcion.getEstatus() == "Available"){
                 double distancia = getDistancia(opcion, solicitante);
                 aceptablesH.add(opcion);
                 aceptablesD.add(distancia);
+                System.out.println("Available" + opcion.getNombre());
             }
         }
 
@@ -108,9 +126,9 @@ public class Hospital{
     //Método para retornar los hospitales que pueden donar y mantener su colchón
     public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD, Hospital solicitate){
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
-        int CantidadDonacion=0;
+        int CantidadDonacion = 0;
         for (int i=0;i<aceptablesH.size();i++){
-            CantidadDonacion=aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon()+CantidadDonacion;
+            CantidadDonacion = aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon()+CantidadDonacion;
             aceptablesH.get(i).setVacunas(aceptablesH.get(i).getColchon());
             aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
             HospitalesQDonaron.add(aceptablesH.get(i));
@@ -120,7 +138,7 @@ public class Hospital{
                 break;
             }
         }
-        
+
         if(CantidadDonacion<solicitate.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
             return HospitalesQDonaron;
