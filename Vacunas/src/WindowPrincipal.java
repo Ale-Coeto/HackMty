@@ -152,7 +152,7 @@ public class WindowPrincipal{
 		lblSolicitudes = new JLabel("Solicitudes");
 		panelPrincipal.add(lblSolicitudes);
 		lblSolicitudes.setForeground(Color.black);
-		lblSolicitudes.setBounds(460, 300, 200, 50);
+		lblSolicitudes.setBounds(450, 300, 200, 50);
 		lblSolicitudes.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblSolicitudes2 = new JLabel("");
@@ -164,13 +164,13 @@ public class WindowPrincipal{
 		lblEstatus = new JLabel("Estatus");
 		panelPrincipal.add(lblEstatus);
 		lblEstatus.setForeground(Color.black);
-		lblEstatus.setBounds(760, 300, 300, 50);
+		lblEstatus.setBounds(765, 300, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblEstatus2 = new JLabel("");
 		panelPrincipal.add(lblEstatus2);
 		lblEstatus2.setForeground(Color.black);
-		lblEstatus2.setBounds(780, 350, 300, 50);
+		lblEstatus2.setBounds(760, 350, 300, 50);
 		lblEstatus2.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblCantVacunas = new JLabel("vacunas");
