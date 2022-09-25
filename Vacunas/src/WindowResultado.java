@@ -137,9 +137,9 @@ public class WindowResultado extends JFrame{
 
         for (int i = 0; i < WindowPrincipal.listaHospitales.size(); i++){
         JPanel punto = new JPanel();
-        punto.setBackground(Color.black);
+        punto.setBackground(Color.red);
         punto.setLayout(null);
-        punto.setBounds(100 + (int)WindowPrincipal.listaHospitales.get(i).getX(),(int)WindowPrincipal.listaHospitales.get(i).getY(),6,6);
+        punto.setBounds(100 + (int)WindowPrincipal.listaHospitales.get(i).getX(),250 + (int)WindowPrincipal.listaHospitales.get(i).getY(),6,6);
         panelPrincipal.add(punto, 1);
 
         }
@@ -149,17 +149,32 @@ public class WindowResultado extends JFrame{
         JPanel punto = new JPanel();
         punto.setBackground(Color.blue);
         punto.setLayout(null);
-        punto.setBounds(100 + (int)donadores.get(i).getX(),(int)donadores.get(i).getX(),6,6);
+        punto.setBounds(100 + (int)donadores.get(i).getX(),250+(int)donadores.get(i).getY(),6,6);
         
         panelPrincipal.add(punto, 2);
+
+        JLabel nombre = new JLabel(donadores.get(i).getNombre());
+        nombre.setForeground(Color.blue);
+        nombre.setLayout(null);
+        nombre.setBounds(110 + (int)donadores.get(i).getX(),250+(int)donadores.get(i).getY(),100,40);
+        
+        panelPrincipal.add(nombre, 2);
+
         }
 
         JPanel punto = new JPanel();
         punto.setBackground(Color.green);
         punto.setLayout(null);
-        punto.setBounds(100 + (int)solicitante.getX(),(int)solicitante.getY(),6,6);
+        punto.setBounds(100 + (int)solicitante.getX(), 250 + (int)solicitante.getY(),6,6);
         
-        panelPrincipal.add(punto, 2);
+        panelPrincipal.add(punto, 3);
+
+        JLabel nombre = new JLabel(solicitante.getNombre());
+        nombre.setForeground(Color.green);
+        nombre.setLayout(null);
+        nombre.setBounds(120 + (int)solicitante.getX(),250+(int)solicitante.getY(),100,40);
+        
+        panelPrincipal.add(nombre, 3);
 
      }
 
