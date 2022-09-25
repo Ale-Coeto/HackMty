@@ -21,13 +21,13 @@ import java.awt.Color;
 
 public class WindowPrincipal{
     
-    private JFrame frmPrincipal; 
+    private static JFrame frmPrincipal; 
     private JPanel panelPrincipal, panelDiseño1, panelCombo;
 	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
-	WindowResultado frmResultado;
+	static WindowResultado frmResultado;
 	//private Font = new Font();
 
 	public static ArrayList<Hospital> listaHospitales;
@@ -211,6 +211,10 @@ public class WindowPrincipal{
 			}
 		}
 		return null;
+	}
+
+	public static void alert(){
+		JOptionPane.showMessageDialog(frmResultado, "No hay suficientes vacunas en los hospitales de la zona.");
 	}
 
 	

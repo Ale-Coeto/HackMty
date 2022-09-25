@@ -2,6 +2,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -123,5 +124,7 @@ public class WindowResultado extends JFrame{
 		panelMapa.add(lblMapa);
 
      }
+
+     
     
 }
