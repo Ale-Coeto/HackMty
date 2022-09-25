@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 //import org.apache.commons.math3.optim.linear.SolutionCallback;
 
@@ -125,8 +126,10 @@ public class Hospital{
 
     //Método para retornar los hospitales que pueden donar y mantener su colchón
     public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD, Hospital solicitate){
+
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
         int CantidadDonacion = 0;
+
         for (int i=0;i<aceptablesH.size();i++){
             CantidadDonacion = aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon()+CantidadDonacion;
             aceptablesH.get(i).setVacunas(aceptablesH.get(i).getColchon());

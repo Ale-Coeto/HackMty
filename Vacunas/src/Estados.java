@@ -22,14 +22,15 @@ public class Estados{
                 System.out.println("This estate can't donate vaccines.");
                 return estatus;
             }
-        }
-        
             if(estatus.compareTo("Available")==0){
-                CantidadQPuedeDonar=nombresdeHospitales.get(i).vacunas-nombresdeHospitales.get(i).colchon+CantidadQPuedeDonar;
+                CantidadQPuedeDonar = nombresdeHospitales.get(i).vacunas-nombresdeHospitales.get(i).colchon+CantidadQPuedeDonar;
                 System.out.println("Esta es la cantidad que puede donar: "+""+CantidadQPuedeDonar);
                 return estatus;
         
     }
+        }
+        
+           
     return null;
 
     }
@@ -42,24 +43,24 @@ public class Estados{
         return nombresdeHospitales;
     }
 
-    public void setNombresdeHospitales(ArrayList<Hospital> nombresdeHospitales) {
-        this.nombresdeHospitales = nombresdeHospitales;
-    }
+    //public void setNombresdeHospitales(ArrayList<Hospital> nombresdeHospitales) {
+       // nombresdeHospitales = nombresdeHospitales;
+    //}
 
     public String getEstatus() {
         return estatus;
     }
 
-    public static void setEstatus(String estatus) {
-        Estados.estatus = estatus;
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
     }
 
     public String getNombreEstado1() {
-        return NombreEstado1;
+        return nombreEstado;
     }
 
     public void setNombreEstado1(String nombreEstado1) {
-        NombreEstado1 = nombreEstado1;
+        nombreEstado = nombreEstado1;
     }
 
     public int getCantidadQPuedeDonar() {
