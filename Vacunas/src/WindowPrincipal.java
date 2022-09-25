@@ -1,3 +1,4 @@
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +20,7 @@ public class WindowPrincipal{
 	private JLabel lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
+	private JButton btnSolicitar;
 
 	public static ArrayList<Hospital> listaHospitales;
 	
