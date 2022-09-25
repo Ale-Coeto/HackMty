@@ -87,6 +87,7 @@ public class Hospital{
         }
         if(CantidadDonacion<this.necesidad){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
+            return HospitalesQDonaron;
         }
         System.out.println("Estos son los hospitales que donaron: ")
         return HospitalesQDonaron;
