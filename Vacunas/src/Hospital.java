@@ -3,7 +3,7 @@ import java.util.Hashtable;
 
 public class Hospital{
     String nombre;
-    double colchon;
+    int colchon;
     int vacunas;
     double x;
     double y;
@@ -14,7 +14,7 @@ public class Hospital{
     //Metodo Constructor
     public Hospital(String nombre,int vacunas,int solicitudes, String NombreEstado2, double x, double y){
         this.nombre=nombre;
-        this.colchon=solicitudes*1.2;
+        this.colchon=solicitudes + solicitudes/20;
         this.vacunas=vacunas;
         //this.coordenadas=coordenadas;
        // this.estado=Estado;
@@ -40,6 +40,26 @@ public class Hospital{
         return nombre;
     }
 
+    public int getColchon(){
+        return colchon;
+    }
+
+    public int getVacunas(){
+        return vacunas;
+    }
+
+    public int getNecesidad(){
+        return necesidad;
+    }
+
+    public void setVacunas(int vacunas){
+        this.vacunas = vacunas;
+    }
+
+    public void setColchon(int colchon){
+        this.colchon = colchon;
+    }
+
 
      public static Hospital Solicitar(Hospital solicitante){
         ArrayList<Hospital> aceptablesH = new ArrayList<>();
@@ -54,17 +74,17 @@ public class Hospital{
             }
         }
         boolean swap=true;
-        for (int i=0; i<aceptablesD.size-1 && swap;i++){
+        for (int i=0; i<aceptablesD.size()-1 && swap;i++){
             swap=false;
-            for (int j=0;j<aceptablesD.size-1-i;j++){
-                if(aceptablesD.get[j].compareTo(aceptablesD.get[j+1])>0){
-                    double temp=aceptablesD.get[j];
-                    aceptablesD.get[j]=aceptablesD.get[j+1];
-                    aceptablesD.get[j+1]=temp;
+            for (int j=0;j<aceptablesD.size()-1-i;j++){
+                if(aceptablesD.get(j).compareTo(aceptablesD.get(+1))>0){
+                    double temp=aceptablesD.get(j);
+                    aceptablesD.set(j, aceptablesD.get(j+1));
+                    aceptablesD.set(j+1, temp);
 
-                    Object temp2=aceptablesD.get[j];
-                    aceptablesH.get[j]=aceptablesH.get[j];
-                    aceptablesH.get[j+1]=temp2;
+                    Hospital temp2=aceptablesH.get(j);
+                    aceptablesH.set(j, aceptablesH.get(j+1));
+                    aceptablesH.set(j+1, temp2);
                     swap=true;
                 }
             }
@@ -74,12 +94,12 @@ public class Hospital{
     public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD){
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
         int CantidadDonacion=0;
-        for (int i=0;i<aceptablesH.size;i++){
-            CantidadDonacion=aceptablesH.get[i].vacunas-aceptablesH.get[i].colchon+CantidadDonacion;
-            aceptablesH.get[i].vacunas=aceptablesH.get[i].colchon;
-            aceptablesH.get[i].colchon=aceptablesH.get[i].vacunas*1.2;
-            HospitalesQDonaron.add(aceptablesH.get[i]);
-            if(CantidadDonacion>=this.necesidad){
+        for (int i=0;i<aceptablesH.size();i++){
+            CantidadDonacion=aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon()+CantidadDonacion;
+            aceptablesH.get(i).setVacunas(aceptablesH.get(i).getColchon());
+            aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
+            HospitalesQDonaron.add(aceptablesH.get(i));
+            if(CantidadDonacion>=aceptablesH.get(i).getNecesidad()){
                 System.out.println("Se obtuvo el numero esperado ");
                 
                 break;
