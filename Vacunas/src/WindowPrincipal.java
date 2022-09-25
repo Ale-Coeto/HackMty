@@ -17,7 +17,7 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-	private JLabel lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus;
+	private JLabel lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus, lblCantVacunas;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
@@ -53,7 +53,7 @@ public class WindowPrincipal{
 
     public void primerPanel(){
         panelPrincipal = new JPanel();
-        panelPrincipal.setBounds(403, 380, 80, 30);
+        panelPrincipal.setBounds(0, 0, 1000, 700);
 		panelPrincipal.setBackground(Color.black);
         panelPrincipal.setLayout(null);
 		frmPrincipal.getContentPane().add(panelPrincipal);
@@ -79,6 +79,7 @@ public class WindowPrincipal{
 				cbNombreHospital.setVisible(true);
 				cbNombreHospital.setSelectedIndex(0);
 				cbNombreHospital.setBounds(250, 200, 300, 60);
+				//cbNombreHospital.scrollRectToVisible(aRect);
 				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 25));
 				panelPrincipal.add(cbNombreHospital);
 				
@@ -87,7 +88,6 @@ public class WindowPrincipal{
 					public void actionPerformed(ActionEvent e) {
 						String nombre = cbNombreHospital.getSelectedItem().toString();
 						Hospital temp = buscarHospital(nombre);
-						tfVacunas.setText("" + temp.getVacunas());
 						lblVacunas.setText("Vacunas: " + temp.getVacunas());
 						lblEstatus.setText("Estatus: " + temp.getEstatus());
 					}
@@ -114,11 +114,29 @@ public class WindowPrincipal{
 		lblVacunas.setBounds(300, 300, 200, 50);
 		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
+		lblCantVacunas = new JLabel("vacunas");
+		panelPrincipal.add(lblCantVacunas);
+		lblCantVacunas.setForeground(Color.white);
+		lblCantVacunas.setBounds(470, 550, 200, 50);
+		lblCantVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+
 		lblEstatus = new JLabel("");
 		panelPrincipal.add(lblEstatus);
 		lblEstatus.setForeground(Color.white);
-		lblEstatus.setBounds(600, 300, 200, 50);
+		lblEstatus.setBounds(650, 300, 200, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 25));
+
+		btnSolicitar = new JButton("Solicitar");
+		btnSolicitar.setBounds(600, 530, 150, 70);
+		btnSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 20));
+		btnSolicitar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("vacunas: " + tfVacunas.getText());
+			}
+		});
+		btnSolicitar.setActionCommand("newProduct");
+		panelPrincipal.add(btnSolicitar);
+
     }
 
 	public static void crearHospitales(){
