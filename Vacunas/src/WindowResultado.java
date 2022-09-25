@@ -112,37 +112,39 @@ public class WindowResultado extends JFrame{
         panelAzul.setVisible(true);
 		panelPrincipal.add(panelAzul);
 
-        panelRojo = new JPanel();
-        panelRojo.setBounds(420, 290, 15, 15);
-		panelRojo.setBackground(Color.red);
-        panelRojo.setLayout(null);
-        panelRojo.setVisible(true);
-		panelPrincipal.add(panelRojo);
-
         panelVerde = new JPanel();
-        panelVerde.setBounds(420, 330, 15, 15);
+        panelVerde.setBounds(420, 290, 15, 15);
 		panelVerde.setBackground(Color.green);
         panelVerde.setLayout(null);
         panelVerde.setVisible(true);
 		panelPrincipal.add(panelVerde);
 
-        lblAzul = new JLabel("Azul");
+        panelRojo = new JPanel();
+        panelRojo.setBounds(420, 330, 15, 15);
+		panelRojo.setBackground(Color.red);
+        panelRojo.setLayout(null);
+        panelRojo.setVisible(true);
+		panelPrincipal.add(panelRojo);
+
+        lblAzul = new JLabel("Hospitales solicitados");
         lblAzul.setBounds(440, 232, 200, 50);
         lblAzul.setFont(new Font("Sans-serif", Font.BOLD, 15));
         lblAzul.setForeground(new Color(0x333333));
         panelPrincipal.add(lblAzul);
 
-        lblRojo = new JLabel("Rojo");
-        lblRojo.setBounds(440, 272, 200, 50);
+        lblVerde = new JLabel("Tu hospital");
+        lblVerde.setBounds(440, 272, 200, 50);
+        lblVerde.setFont(new Font("Sans-serif", Font.BOLD, 15));
+        lblVerde.setForeground(new Color(0x333333));
+        panelPrincipal.add(lblVerde);
+
+        lblRojo = new JLabel("Otros hospitales");
+        lblRojo.setBounds(440, 310, 200, 50);
         lblRojo.setFont(new Font("Sans-serif", Font.BOLD, 15));
         lblRojo.setForeground(new Color(0x333333));
         panelPrincipal.add(lblRojo);
 
-        lblVerde = new JLabel("Verde");
-        lblVerde.setBounds(440, 310, 200, 50);
-        lblVerde.setFont(new Font("Sans-serif", Font.BOLD, 15));
-        lblVerde.setForeground(new Color(0x333333));
-        panelPrincipal.add(lblVerde);
+       
        
 
         String txt = "";

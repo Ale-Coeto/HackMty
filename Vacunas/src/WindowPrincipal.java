@@ -229,7 +229,7 @@ public class WindowPrincipal{
 		Hospital h3 = new Hospital("Centro salud", 340, 300, "Monterrey", 10.4, 15);
 		listaHospitales.add(h3);
 
-		Hospital h4 = new Hospital("Cruz Roja", 10, 100, "Saltillo", 260, 100);
+		Hospital h4 = new Hospital("Cruz Roja", 10, 100, "Saltillo", 260, 150);
 		listaHospitales.add(h4);
 
 		Hospital h5 = new Hospital("Doctors", 400, 280, "CD Mx", 90, 50);
