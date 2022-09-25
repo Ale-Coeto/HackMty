@@ -257,13 +257,13 @@ public class WindowPrincipal{
 		Hospital h1 = new Hospital("San Nicolás", 200, 120, "Monterrey", 10, 230);
 		listaHospitales.add(h1);
 			
-		Hospital h2 = new Hospital("M. Alemán", 60, 10, "Saltillo", 100, 5.2);
+		Hospital h2 = new Hospital("M. Alemán", 60, 110, "Saltillo", 100, 5.2);
 		listaHospitales.add(h2);
 
 		Hospital h3 = new Hospital("Centro salud", 340, 300, "Monterrey", 10.4, 15);
 		listaHospitales.add(h3);
 
-		Hospital h4 = new Hospital("Cruz Roja", 100, 110, "Saltillo", 260, 150);
+		Hospital h4 = new Hospital("Cruz Roja", 100, 150, "Saltillo", 260, 150);
 		listaHospitales.add(h4);
 
 		Hospital h5 = new Hospital("Doctors", 400, 280, "CD Mx", 90, 50);
