@@ -102,6 +102,7 @@ public class Hospital{
     public void setSolicitudes(int solicitudes){
         this.solicitudes = solicitudes;
         this.necesidad = solicitudes-vacunas;
+        setEstatus();
     }
 
     public void setDonacion(int donacion){
