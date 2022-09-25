@@ -1,8 +1,7 @@
 public class Estados extends Hospital{
    
     Hospital[] nombresdeHospitales;
-    int totalSolicitudes;
-    String EstadodelEstado;
+    String Status;
     String NombreEstado1;
     //Coordenadas
     // public Estados(String){
