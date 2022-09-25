@@ -6,14 +6,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.apache.batik.bridge.FlowGlyphLayout;
 
 //import org.w3c.dom.css.RGBColor;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.awt.Font;
-import java.awt.LayoutManager;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
@@ -86,11 +85,11 @@ public class WindowPrincipal{
         lblNombreHospital.setBounds(100, 200, 200, 50);
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 30));
 
-		// panelCombo = new JPanel();
-		// panelCombo.setBounds(250, 200, 300, 60);
-		// panelCombo.setBackground(Color.white);
-		// panelCombo.setLayout(null);
-		// panelPrincipal.add(panelCombo);
+		panelCombo = new JPanel();
+		panelCombo.setBounds(250, 200, 300, 60);
+		panelCombo.setBackground(Color.white);
+		panelCombo.setLayout(new BorderLayout());
+		panelPrincipal.add(panelCombo);
 
 		//crearHospitales();
 		cbNombreHospital = new JComboBox<String>();
@@ -108,7 +107,7 @@ public class WindowPrincipal{
 				cbNombreHospital.setSelectedIndex(0);
 				cbNombreHospital.setBounds(250, 200, 300, 60);
 				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 15));
-				panelPrincipal.add(cbNombreHospital);
+				panelCombo.add(cbNombreHospital);
 				
 				cbNombreHospital.addActionListener(new ActionListener(){
 					@Override
