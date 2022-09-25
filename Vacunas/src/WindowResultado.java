@@ -7,6 +7,10 @@ import javax.swing.JTextArea;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 
@@ -85,12 +89,16 @@ public class WindowResultado extends JFrame{
         panelMapa.setLayout(null);
 		panelPrincipal.add(panelMapa);
 
-         mapa = new ImageIcon(WindowResultado.class.getResource("/HackMty/Vacunas/mapa.png"));
-		
+         //mapa = new ImageIcon(getClass.class.getResource("Vacunas/src/mapa.png"));
+        // BufferedImage myPicture = ImageIO.read(new File("mapa.png"));
+         //JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        // add(picLabel);
+
 		lblMapa = new JLabel("cooo");
 		lblMapa.setBounds(0, 0, 300,200);
-		lblMapa.setIcon(mapa);
+		//lblMapa.setIcon(mapa);
         lblMapa.setFont(new Font("Helvetica", Font.PLAIN, 30));
+        lblMapa.setBackground(Color.CYAN);
 		panelMapa.add(lblMapa);
 
      }

@@ -18,7 +18,7 @@ public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
     private JPanel panelPrincipal;
-	private JLabel lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus, lblCantVacunas;
+	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus, lblCantVacunas;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
@@ -59,6 +59,13 @@ public class WindowPrincipal{
 		panelPrincipal.setBackground(Color.black);
         panelPrincipal.setLayout(null);
 		frmPrincipal.getContentPane().add(panelPrincipal);
+
+		lblTitulo = new JLabel("Distribución de Vacunas");
+		panelPrincipal.add(lblTitulo);
+        lblTitulo.setForeground(Color.white);
+        lblTitulo.setBounds(100, 50, 1000, 50);
+		lblTitulo.setBackground(Color.gray);
+        lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
 
         lblNombreHospital = new JLabel("Hospital:");
         panelPrincipal.add(lblNombreHospital);
