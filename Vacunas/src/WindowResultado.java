@@ -1,10 +1,13 @@
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -23,11 +26,12 @@ public class WindowResultado extends JFrame{
     private static JLabel lblTitulo, lblSolicitarA, lblMapa;
     private static JTextArea txtDonadores;
     private static ImageIcon mapa;
+    private static JButton btnClose;
 
 
 
      WindowResultado(ArrayList<Hospital> donadores, Hospital solicitante){
-        this.setBounds(0,0,650,800);
+        this.setBounds(0,0,650,500);
 		this.setLayout(null);
 		this.setVisible(true);
 		this.setTitle("Donadores");
@@ -63,6 +67,17 @@ public class WindowResultado extends JFrame{
         txtDonadores = new JTextArea();
         txtDonadores.setBounds(100, 100, 280, 90);
         
+        btnClose = new JButton("Cerrar");
+        btnClose.setBounds(400, 300, 120, 25);
+		btnClose.setFont(new Font("Helvetica", Font.PLAIN, 20));
+		btnClose.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WindowResultado.this.dispose();
+            }
+		});
+		btnClose.setActionCommand("newProduct");
+		panelPrincipal.add(btnClose);
        
 
         String txt = "Hospital \t Vacunas \t Distancia \n";
