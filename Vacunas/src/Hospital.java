@@ -61,7 +61,7 @@ public class Hospital{
     }
 
 
-     public static Hospital Solicitar(Hospital solicitante){
+     public static ArrayList<Hospital> Solicitar(Hospital solicitante){
         ArrayList<Hospital> aceptablesH = new ArrayList<>();
         ArrayList<Double> aceptablesD = new ArrayList<>();
 
@@ -89,9 +89,11 @@ public class Hospital{
                 }
             }
         }
-        return null;
+        ArrayList<Hospital> HospitalesQDonaron = DonacionVacunas(aceptablesH, aceptablesD, solicitante);
+
+        return HospitalesQDonaron;
     }
-    public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD){
+    public static ArrayList<Hospital> DonacionVacunas(ArrayList<Hospital> aceptablesH, ArrayList<Double> aceptablesD, Hospital solicitate){
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
         int CantidadDonacion=0;
         for (int i=0;i<aceptablesH.size();i++){
@@ -99,16 +101,16 @@ public class Hospital{
             aceptablesH.get(i).setVacunas(aceptablesH.get(i).getColchon());
             aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
             HospitalesQDonaron.add(aceptablesH.get(i));
-            if(CantidadDonacion>=aceptablesH.get(i).getNecesidad()){
+            if(CantidadDonacion>= solicitate.getNecesidad()){
                 System.out.println("Se obtuvo el numero esperado ");
                 
                 break;
             }
         }
-        if(CantidadDonacion<this.necesidad){
+        if(CantidadDonacion<solicitate.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
         }
-        System.out.println("Estos son los hospitales que donaron: ")
+        System.out.println("Estos son los hospitales que donaron: ");
         return HospitalesQDonaron;
     } 
     
