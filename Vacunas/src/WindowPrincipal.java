@@ -23,7 +23,7 @@ public class WindowPrincipal{
     
     private static JFrame frmPrincipal; 
     private JPanel panelPrincipal, panelDiseño1, panelCombo, panelDVacunas, panelDSolicitudes, panelDEstatus;
-	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas,
+	private JLabel lblLimite, lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas,
 	lblVacunas2, lblSolicitudes2, lblEstatus2;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
@@ -110,6 +110,14 @@ public class WindowPrincipal{
 				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 15));
 				panelCombo.add(cbNombreHospital);
 				
+				lblLimite = new JLabel("");
+			lblLimite.setForeground(Color.black);
+			lblLimite.setBounds(100, 450, 500, 50);
+			lblLimite.setFont(new Font("Helvetica", Font.PLAIN, 20));
+			panelPrincipal.add(lblLimite);
+
+		
+
 				cbNombreHospital.addActionListener(new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -119,6 +127,12 @@ public class WindowPrincipal{
 						lblEstatus2.setText("" + temp.getEstatus());
 						lblSolicitudes2.setText("" + temp.getSolicitudes());
 
+						if(temp.getSolicitudes() <= temp.getVacunas()){
+							lblLimite.setText("Hay suficientes vacunas para cumplir con las solicitudes");
+							tfVacunas.setEditable(false);
+						} else{
+							lblLimite.setText("");
+						}
 					}
 				});
 				
@@ -166,6 +180,9 @@ public class WindowPrincipal{
 		lblEstatus.setForeground(Color.black);
 		lblEstatus.setBounds(765, 300, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 20));
+
+		
+
 
 		lblEstatus2 = new JLabel("");
 		panelPrincipal.add(lblEstatus2);
