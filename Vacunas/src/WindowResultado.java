@@ -35,7 +35,7 @@ public class WindowResultado extends JFrame{
 
 
      WindowResultado(ArrayList<Hospital> donadores, Hospital solicitante){
-        this.setBounds(0,0,650,600);
+        this.setBounds(0,0,650,700);
 		this.setLayout(null);
 		this.setVisible(true);
 		this.setTitle("Donadores");
@@ -51,7 +51,7 @@ public class WindowResultado extends JFrame{
 		// frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         panelPrincipal = new JPanel();
-        panelPrincipal.setBounds(0, 0, 650, 600);
+        panelPrincipal.setBounds(0, 0, 650, 700);
 		panelPrincipal.setBackground(Color.white);
         panelPrincipal.setLayout(null);
         panelPrincipal.setVisible(true);
@@ -84,7 +84,7 @@ public class WindowResultado extends JFrame{
         txtDonadores.setEditable(false);
         
         btnClose = new JButton("Cerrar");
-        btnClose.setBounds(450, 400, 120, 25);
+        btnClose.setBounds(515, 630, 120, 25);
 		//btnClose.setFont(new Font("Helvetica", Font.PLAIN, 20));
 		btnClose.addActionListener(new ActionListener(){
             @Override
@@ -115,7 +115,7 @@ public class WindowResultado extends JFrame{
         panelPrincipal.add(txtDonadores);
     
         panelMapa = new JPanel();
-        panelMapa.setBounds(100, 250, 300,200);
+        panelMapa.setBounds(100, 240, 300, 400);
 		panelMapa.setBackground(Color.red);
         panelMapa.setLayout(null);
 		panelPrincipal.add(panelMapa);
@@ -126,11 +126,11 @@ public class WindowResultado extends JFrame{
         // add(picLabel);
 
 		lblMapa = new JLabel("cooo");
-		lblMapa.setBounds(0, 0, 300,200);
+		lblMapa.setBounds(0, 0, 300,400);
         Image mapa = new ImageIcon(this.getClass().getResource("/mapa.png")).getImage();
 		//lblMapa.setIcon(mapa);
 
-        lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(400, 300,  java.awt.Image.SCALE_SMOOTH)));
+        lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(300, 400,  java.awt.Image.SCALE_SMOOTH)));
         lblMapa.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblMapa.setBackground(Color.CYAN);
 		panelMapa.add(lblMapa, 0);
