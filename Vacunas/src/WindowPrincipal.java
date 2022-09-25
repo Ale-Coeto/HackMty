@@ -22,7 +22,8 @@ import java.awt.Color;
 public class WindowPrincipal{
     
     private static JFrame frmPrincipal; 
-    private JPanel panelPrincipal, panelDiseño1, panelCombo, panelDVacunas, panelDSolicitudes, panelDEstatus;
+    private JPanel panelPrincipal, panelDiseño1, panelCombo, panelDVacunas, panelDSolicitudes, panelDEstatus, panelDVacunas2, 
+	panelDSolicitudes2, panelDEstatus2;
 	private JLabel lblLimite, lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas,
 	lblVacunas2, lblSolicitudes2, lblEstatus2;
 	private JComboBox<String> cbNombreHospital;
@@ -132,6 +133,7 @@ public class WindowPrincipal{
 							tfVacunas.setEditable(false);
 						} else{
 							lblLimite.setText("");
+							tfVacunas.setEditable(true);
 						}
 					}
 				});
@@ -147,57 +149,54 @@ public class WindowPrincipal{
 
 		tfVacunas = new JTextField();
 		panelPrincipal.add(tfVacunas);
-		tfVacunas.setBounds(300, 550, 150, 50);
+		tfVacunas.setBounds(220, 550, 150, 50);
 		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 		tfVacunas.setEditable(true);
 
 		lblVacunas = new JLabel("Vacunas");
 		panelPrincipal.add(lblVacunas);
-		lblVacunas.setForeground(Color.black);
-		lblVacunas.setBounds(160, 300, 200, 50);
+		lblVacunas.setForeground(Color.white);
+		lblVacunas.setBounds(160, 307, 200, 50);
 		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblVacunas2 = new JLabel("");
 		panelPrincipal.add(lblVacunas2);
 		lblVacunas2.setForeground(Color.black);
-		lblVacunas2.setBounds(180, 350, 200, 50);
+		lblVacunas2.setBounds(180, 355, 200, 50);
 		lblVacunas2.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblSolicitudes = new JLabel("Solicitudes");
 		panelPrincipal.add(lblSolicitudes);
-		lblSolicitudes.setForeground(Color.black);
-		lblSolicitudes.setBounds(450, 300, 200, 50);
+		lblSolicitudes.setForeground(Color.white);
+		lblSolicitudes.setBounds(450, 307, 200, 50);
 		lblSolicitudes.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblSolicitudes2 = new JLabel("");
 		panelPrincipal.add(lblSolicitudes2);
 		lblSolicitudes2.setForeground(Color.black);
-		lblSolicitudes2.setBounds(480, 350, 200, 50);
+		lblSolicitudes2.setBounds(480, 355, 200, 50);
 		lblSolicitudes2.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblEstatus = new JLabel("Estatus");
 		panelPrincipal.add(lblEstatus);
-		lblEstatus.setForeground(Color.black);
-		lblEstatus.setBounds(765, 300, 300, 50);
+		lblEstatus.setForeground(Color.white);
+		lblEstatus.setBounds(765, 307, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 20));
-
-		
-
 
 		lblEstatus2 = new JLabel("");
 		panelPrincipal.add(lblEstatus2);
 		lblEstatus2.setForeground(Color.black);
-		lblEstatus2.setBounds(760, 350, 300, 50);
+		lblEstatus2.setBounds(760, 355, 300, 50);
 		lblEstatus2.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		lblCantVacunas = new JLabel("vacunas");
 		panelPrincipal.add(lblCantVacunas);
 		lblCantVacunas.setForeground(Color.black);
-		lblCantVacunas.setBounds(470, 550, 200, 50);
-		lblCantVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+		lblCantVacunas.setBounds(380, 550, 200, 50);
+		lblCantVacunas.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		btnSolicitar = new JButton("Solicitar");
-		btnSolicitar.setBounds(600, 530, 150, 70);
+		btnSolicitar.setBounds(500, 545, 150, 60);
 		btnSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 20));
 		btnSolicitar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -217,22 +216,40 @@ public class WindowPrincipal{
 
 		//Más diseño
 		panelDVacunas = new JPanel();
-		panelDVacunas.setBounds(100, 300, 200, 100);
+		panelDVacunas.setBounds(100, 350, 200, 60);
 		panelDVacunas.setBackground(new Color(0xCBCACA));
         panelDVacunas.setLayout(null);
 		panelPrincipal.add(panelDVacunas);
 
 		panelDSolicitudes = new JPanel();
-		panelDSolicitudes.setBounds(400, 300, 200, 100);
+		panelDSolicitudes.setBounds(400, 350, 200, 60);
 		panelDSolicitudes.setBackground(new Color(0xCBCACA));
         panelDSolicitudes.setLayout(null);
 		panelPrincipal.add(panelDSolicitudes);
 
 		panelDEstatus = new JPanel();
-		panelDEstatus.setBounds(700, 300, 200, 100);
+		panelDEstatus.setBounds(700, 350, 200, 60);
 		panelDEstatus.setBackground(new Color(0xCBCACA));
         panelDEstatus.setLayout(null);
 		panelPrincipal.add(panelDEstatus);
+
+		panelDVacunas2 = new JPanel();
+		panelDVacunas2.setBounds(100, 310, 200, 50);
+		panelDVacunas2.setBackground(new Color(0x548FFD));
+        panelDVacunas2.setLayout(null);
+		panelPrincipal.add(panelDVacunas2);
+
+		panelDSolicitudes2 = new JPanel();
+		panelDSolicitudes2.setBounds(400, 310, 200, 50);
+		panelDSolicitudes2.setBackground(new Color(0x548FFD));
+        panelDSolicitudes2.setLayout(null);
+		panelPrincipal.add(panelDSolicitudes2);
+
+		panelDEstatus2 = new JPanel();
+		panelDEstatus2.setBounds(700, 310, 200, 50);
+		panelDEstatus2.setBackground(new Color(0x548FFD));
+        panelDEstatus2.setLayout(null);
+		panelPrincipal.add(panelDEstatus2);
     }
 
 	public static void crearHospitales(){
