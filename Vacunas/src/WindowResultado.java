@@ -30,7 +30,7 @@ public class WindowResultado extends JFrame{
     private static JLabel lblTitulo, lblSolicitarA, lblMapa;
     private static JTextArea txtDonadores, txtDonadoresHeading;
     private static ImageIcon mapa;
-    private static JButton btnClose;
+    private static JButton btnClose, btnSolicitar;
 
 
 
@@ -83,9 +83,8 @@ public class WindowResultado extends JFrame{
         txtDonadores.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         txtDonadores.setEditable(false);
         
-        btnClose = new JButton("Cerrar");
+        btnClose = new JButton("Atras");
         btnClose.setBounds(515, 630, 120, 25);
-		//btnClose.setFont(new Font("Helvetica", Font.PLAIN, 20));
 		btnClose.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,6 +93,20 @@ public class WindowResultado extends JFrame{
 		});
 		btnClose.setActionCommand("newProduct");
 		panelPrincipal.add(btnClose);
+
+       
+
+        btnSolicitar = new JButton("Solicitar");
+        btnSolicitar.setBounds(515, 600, 120, 25);
+		btnSolicitar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(WindowResultado.this, "Productos solicitados correctamente.");
+                WindowResultado.this.dispose();
+            }
+		});
+		btnSolicitar.setActionCommand("newProduct");
+		panelPrincipal.add(btnSolicitar);
        
 
         String txt = "";
