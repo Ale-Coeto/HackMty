@@ -6,11 +6,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.w3c.dom.css.RGBColor;
+import org.apache.batik.bridge.FlowGlyphLayout;
+
+//import org.w3c.dom.css.RGBColor;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.awt.Font;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
@@ -20,7 +23,7 @@ import java.awt.Color;
 public class WindowPrincipal{
     
     private JFrame frmPrincipal; 
-    private JPanel panelPrincipal;
+    private JPanel panelPrincipal, panelDiseño1, panelCombo;
 	private JLabel lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblEstatus, lblCantVacunas;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
@@ -71,11 +74,23 @@ public class WindowPrincipal{
 		lblTitulo.setBackground(Color.gray);
         lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
 
+		panelDiseño1 = new JPanel();
+		panelDiseño1.setBounds(100, 120, 800, 3);
+		panelDiseño1.setBackground(new Color(0xCBCACA));
+        panelDiseño1.setLayout(null);
+		panelPrincipal.add(panelDiseño1);
+
         lblNombreHospital = new JLabel("Hospital:");
         panelPrincipal.add(lblNombreHospital);
-        lblNombreHospital.setForeground(Color.white);
+        lblNombreHospital.setForeground(Color.black);
         lblNombreHospital.setBounds(100, 200, 200, 50);
         lblNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 30));
+
+		// panelCombo = new JPanel();
+		// panelCombo.setBounds(250, 200, 300, 60);
+		// panelCombo.setBackground(Color.white);
+		// panelCombo.setLayout(null);
+		// panelPrincipal.add(panelCombo);
 
 		//crearHospitales();
 		cbNombreHospital = new JComboBox<String>();
@@ -92,8 +107,7 @@ public class WindowPrincipal{
 				cbNombreHospital.setVisible(true);
 				cbNombreHospital.setSelectedIndex(0);
 				cbNombreHospital.setBounds(250, 200, 300, 60);
-				//cbNombreHospital.scrollRectToVisible(aRect);
-				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 25));
+				cbNombreHospital.setFont(new Font("Helvetica", Font.PLAIN, 15));
 				panelPrincipal.add(cbNombreHospital);
 				
 				cbNombreHospital.addActionListener(new ActionListener(){
@@ -113,7 +127,7 @@ public class WindowPrincipal{
 
 		lblSolicitar = new JLabel("Solicitar:");
 		panelPrincipal.add(lblSolicitar);
-		lblSolicitar.setForeground(Color.white);
+		lblSolicitar.setForeground(Color.black);
 		lblSolicitar.setBounds(100, 550, 200, 50);
 		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
 		
@@ -126,19 +140,19 @@ public class WindowPrincipal{
 
 		lblVacunas = new JLabel("");
 		panelPrincipal.add(lblVacunas);
-		lblVacunas.setForeground(Color.white);
+		lblVacunas.setForeground(Color.black);
 		lblVacunas.setBounds(250, 300, 200, 50);
 		lblVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		lblCantVacunas = new JLabel("vacunas");
 		panelPrincipal.add(lblCantVacunas);
-		lblCantVacunas.setForeground(Color.white);
+		lblCantVacunas.setForeground(Color.black);
 		lblCantVacunas.setBounds(470, 550, 200, 50);
 		lblCantVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
 		lblEstatus = new JLabel("");
 		panelPrincipal.add(lblEstatus);
-		lblEstatus.setForeground(Color.white);
+		lblEstatus.setForeground(Color.black);
 		lblEstatus.setBounds(600, 300, 300, 50);
 		lblEstatus.setFont(new Font("Helvetica", Font.PLAIN, 25));
 
@@ -161,6 +175,7 @@ public class WindowPrincipal{
 		btnSolicitar.setActionCommand("newProduct");
 		panelPrincipal.add(btnSolicitar);
 
+		
     }
 
 	public static void crearHospitales(){
