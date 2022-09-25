@@ -66,6 +66,7 @@ public class WindowResultado extends JFrame{
 
         txtDonadores = new JTextArea();
         txtDonadores.setBounds(100, 100, 280, 90);
+        txtDonadores.setEditable(false);
         
         btnClose = new JButton("Cerrar");
         btnClose.setBounds(450, 400, 120, 25);
