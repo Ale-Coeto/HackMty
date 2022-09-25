@@ -51,7 +51,7 @@ public class WindowResultado extends JFrame{
         lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
 
         txtDonadores = new JTextArea();
-        txtDonadores.setBounds(100, 400, 180, 90);
+        txtDonadores.setBounds(100, 400, 280, 90);
         
 
         String txt = "";
@@ -61,8 +61,13 @@ public class WindowResultado extends JFrame{
             System.out.println(solicitante.getNombre() + " s " + solicitante.getX());
 
             double distancia = Hospital.getDistancia(solicitante, donadores.get(i));
+
+            distancia = Math.round(distancia*100.0)/100.0;
             System.out.println(Double.toString(distancia));
-            txt += (Double.toString(distancia) + "\n");
+            
+            txt += (Double.toString(distancia) + "\t");
+            
+            txt += (Integer.toString(donadores.get(i).getDonacion())+ "\n");
 
         }
         txtDonadores.setText(txt);

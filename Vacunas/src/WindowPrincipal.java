@@ -92,6 +92,7 @@ public class WindowPrincipal{
 						lblVacunas.setText("Vacunas: " + temp.getVacunas());
 						lblEstatus.setText("Estatus: " + temp.getEstatus());
 
+
 					}
 				});
 				
@@ -103,11 +104,13 @@ public class WindowPrincipal{
 		lblSolicitar.setForeground(Color.white);
 		lblSolicitar.setBounds(100, 550, 200, 50);
 		lblSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 30));
+		
 
 		tfVacunas = new JTextField();
 		panelPrincipal.add(tfVacunas);
 		tfVacunas.setBounds(300, 550, 150, 50);
 		tfVacunas.setFont(new Font("Helvetica", Font.PLAIN, 25));
+		
 		tfVacunas.setEditable(true);
 
 		lblVacunas = new JLabel("");
@@ -151,16 +154,16 @@ public class WindowPrincipal{
 
 	public static void crearHospitales(){
 		listaHospitales = new ArrayList<Hospital>();
-		Hospital h1 = new Hospital("Cruz roja", 400, 20, "Monterrey", 10, 230);
+		Hospital h1 = new Hospital("Cruz roja", 200, 120, "Monterrey", 10, 230);
 		listaHospitales.add(h1);
 			
 		Hospital h2 = new Hospital("Coet", 60, 10, "Saltillo", 100, 5.2);
 		listaHospitales.add(h2);
 
-		Hospital h3 = new Hospital("DR Andrik", 50, 300, "Monterrey", 10.4, 15);
+		Hospital h3 = new Hospital("DR Andrik", 340, 300, "Monterrey", 10.4, 15);
 		listaHospitales.add(h3);
 
-		Hospital h4 = new Hospital("San José", 100, 10, "Saltillo", 0, 100);
+		Hospital h4 = new Hospital("San José", 10, 100, "Saltillo", 0, 100);
 		listaHospitales.add(h4);
 
 		//ArrayList<Hospital> lista = Hospital.Solicitar(h3);

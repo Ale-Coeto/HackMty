@@ -34,7 +34,7 @@ public class Hospital{
 
 
     private void setEstatus() {
-        if(this.solicitudes < this.vacunas){
+        if(vacunas > solicitudes && colchon <vacunas){
             this.estatus = "Available";
 
         }else {
@@ -72,6 +72,10 @@ public class Hospital{
         return necesidad;
     }
 
+    public int getDonacion(){
+        return donacion;
+    }
+
     public int setDonacion(){
         return donacion;
     }
@@ -97,10 +101,11 @@ public class Hospital{
 
     public void setSolicitudes(int solicitudes){
         this.solicitudes = solicitudes;
+        this.necesidad = solicitudes-vacunas;
     }
 
     public void setDonacion(int donacion){
-        this.donacion=donacion;
+        this.donacion = donacion;
     }
     
 
@@ -148,31 +153,37 @@ public class Hospital{
         ArrayList<Hospital> HospitalesQDonaron=new ArrayList<>();
         int CantidadDonacion = 0;
         for (int i=0;i<aceptablesH.size();i++){
-            aceptablesH.get(i).setDonacion(aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon());
-            CantidadDonacion = aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon()+CantidadDonacion;
+           // aceptablesH.get(i).setDonacion(aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon());
+            int donado = aceptablesH.get(i).getVacunas()-aceptablesH.get(i).getColchon();
+            aceptablesH.get(i).setDonacion(donado);
             
+            CantidadDonacion += donado;
+            System.out.println("solic " + solicitante.getSolicitudes() + " nece " + solicitante.getNecesidad());
+            System.out.println("---Donado " + donado + " n " + CantidadDonacion);
+
             aceptablesH.get(i).setVacunas(aceptablesH.get(i).getColchon());
-            aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
+            //aceptablesH.get(i).setColchon(aceptablesH.get(i).getVacunas() + aceptablesH.get(i).getVacunas()/20);
             HospitalesQDonaron.add(aceptablesH.get(i));
 
-            if(CantidadDonacion >= solicitante.getSolicitudes()){
+            if(CantidadDonacion >= solicitante.getNecesidad()){
                 System.out.println("Se obtuvo el numero esperado ");
-            if(CantidadDonacion>= solicitante.getSolicitudes() ){
-                System.out.println("Se obtuvo el numero necesario de vacunas. ");
-                break;
+                return HospitalesQDonaron;
+                //break;
             }
         }
 
-        if(CantidadDonacion<solicitante.getSolicitudes()){
+        if(CantidadDonacion<solicitante.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
             return HospitalesQDonaron;
-        
+
+           // System.out.println("Estos son los hospitales que donaron: " + HospitalesQDonaron.get(0).getNombre());
+            //return HospitalesQDonaron;
     }
+    return null;
 }
-        System.out.println("Estos son los hospitales que donaron: " + HospitalesQDonaron.get(0).getNombre());
-        return HospitalesQDonaron;
+       
     
 
-    }
+    
 
 }
