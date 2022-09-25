@@ -57,7 +57,12 @@ public class WindowResultado extends JFrame{
         String txt = "";
         for(int i = 0; i < donadores.size(); i++){
             txt += donadores.get(i).getNombre() + "\t";
-            txt += Double.toString(Hospital.getDistancia(donadores.get(i), solicitante)) + "\n";
+            System.out.println("donadores " + donadores.get(i).getNombre() + " "+donadores.get(i).getX());
+            System.out.println(solicitante.getNombre() + " s " + solicitante.getX());
+
+            double distancia = Hospital.getDistancia(solicitante, donadores.get(i));
+            System.out.println(Double.toString(distancia));
+            txt += (Double.toString(distancia) + "\n");
 
         }
         txtDonadores.setText(txt);

@@ -151,17 +151,17 @@ public class WindowPrincipal{
 
 	public static void crearHospitales(){
 		listaHospitales = new ArrayList<Hospital>();
-		Hospital h1 = new Hospital("Cruz roja", 400, 20, "Monterrey", 10, 200);
+		Hospital h1 = new Hospital("Cruz roja", 400, 20, "Monterrey", 10, 230);
 		listaHospitales.add(h1);
 			
-		Hospital h2 = new Hospital("Coet", 60, 10, "Saltillo", 100, 5);
+		Hospital h2 = new Hospital("Coet", 60, 10, "Saltillo", 100, 5.2);
 		listaHospitales.add(h2);
 
-		Hospital h3 = new Hospital("DR Andrik", 50, 300, "Monterrey", 10, 15);
+		Hospital h3 = new Hospital("DR Andrik", 50, 300, "Monterrey", 10.4, 15);
 		listaHospitales.add(h3);
 
 		Hospital h4 = new Hospital("San José", 100, 10, "Saltillo", 0, 100);
-
+		listaHospitales.add(h4);
 
 		//ArrayList<Hospital> lista = Hospital.Solicitar(h3);
 		//System.out.println("Lista: " + lista.get(0).getNombre());
