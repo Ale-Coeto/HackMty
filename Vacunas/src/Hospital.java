@@ -34,7 +34,7 @@ public class Hospital{
 
 
     private void setEstatus() {
-        if(vacunas > solicitudes && colchon <vacunas){
+        if(vacunas > solicitudes && colchon < vacunas){
             this.estatus = "Available";
 
         }else {
@@ -131,7 +131,7 @@ public class Hospital{
         for (int i=0; i<aceptablesD.size()-1 && swap;i++){
             swap=false;
             for (int j=0;j<aceptablesD.size()-1-i;j++){
-                if(aceptablesD.get(j).compareTo(aceptablesD.get(+1))>0){
+                if(aceptablesD.get(j).compareTo(aceptablesD.get(j+1))>0){
                     double temp=aceptablesD.get(j);
                     aceptablesD.set(j, aceptablesD.get(j+1));
                     aceptablesD.set(j+1, temp);
@@ -173,7 +173,7 @@ public class Hospital{
             }
         }
 
-        if(CantidadDonacion<solicitante.getNecesidad()){
+        if(CantidadDonacion < solicitante.getNecesidad()){
             System.out.println("No hay suficientes vacunas en los hospitales de la zona.");
             
             WindowPrincipal.alert();

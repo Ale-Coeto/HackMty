@@ -114,7 +114,7 @@ public class WindowResultado extends JFrame{
 
         panelVerde = new JPanel();
         panelVerde.setBounds(420, 290, 15, 15);
-		panelVerde.setBackground(Color.green);
+		panelVerde.setBackground(Color.black);
         panelVerde.setLayout(null);
         panelVerde.setVisible(true);
 		panelPrincipal.add(panelVerde);
@@ -215,14 +215,14 @@ public class WindowResultado extends JFrame{
         }
 
         JPanel punto = new JPanel();
-        punto.setBackground(Color.green);
+        punto.setBackground(Color.black);
         punto.setLayout(null);
         punto.setBounds(100 + (int)solicitante.getX(), 250 + (int)solicitante.getY(),6,6);
         
         panelPrincipal.add(punto, 3);
 
         JLabel nombre = new JLabel(solicitante.getNombre());
-        nombre.setForeground(Color.green);
+        nombre.setForeground(Color.black);
         nombre.setLayout(null);
         nombre.setFont(new Font("Helvetica", Font.BOLD, 15));        
         nombre.setBounds(120 + (int)solicitante.getX(),250+(int)solicitante.getY(),200,40);
