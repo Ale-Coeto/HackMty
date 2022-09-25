@@ -49,16 +49,18 @@ public class WindowResultado extends JFrame{
     
         panelPrincipal = new JPanel();
         panelPrincipal.setBounds(0, 0, 650, 800);
-		panelPrincipal.setBackground(Color.blue);
+		panelPrincipal.setBackground(Color.white);
         panelPrincipal.setLayout(null);
         panelPrincipal.setVisible(true);
 		this.add(panelPrincipal);
 
         lblTitulo = new JLabel("Donadores:");
-        panelPrincipal.add(lblTitulo);
-        lblTitulo.setForeground(Color.white);
         lblTitulo.setBounds(100, 40, 200, 50);
-        lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
+        //lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
+        lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
+        lblTitulo.setForeground(new Color(0x272727));
+        panelPrincipal.add(lblTitulo);
+
 
         lblSolicitarA = new JLabel("Solicitar a: ");
         panelPrincipal.add(lblTitulo);
