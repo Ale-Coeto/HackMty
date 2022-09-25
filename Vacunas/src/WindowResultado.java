@@ -159,9 +159,8 @@ public class WindowResultado extends JFrame{
             //System.out.println(Double.toString(distancia));
             txt += "   " + (Integer.toString(donadores.get(i).getDonacion())+ "\t  ");
             txt += "     " + (Double.toString(distancia) + "\n");
-
-
         }
+
         txtDonadores.setText(txt);
         panelPrincipal.add(txtDonadores);
     
@@ -204,10 +203,12 @@ public class WindowResultado extends JFrame{
         
         panelPrincipal.add(punto, 2);
 
+        //Tags
         JLabel nombre = new JLabel(donadores.get(i).getNombre());
         nombre.setForeground(Color.blue);
         nombre.setLayout(null);
-        nombre.setBounds(110 + (int)donadores.get(i).getX(),250+(int)donadores.get(i).getY(),100,40);
+        nombre.setFont(new Font("Helvetica", Font.BOLD, 15));
+        nombre.setBounds(110 + (int)donadores.get(i).getX(),250+(int)donadores.get(i).getY(),200,40);
         
         panelPrincipal.add(nombre, 2);
 
@@ -223,7 +224,8 @@ public class WindowResultado extends JFrame{
         JLabel nombre = new JLabel(solicitante.getNombre());
         nombre.setForeground(Color.green);
         nombre.setLayout(null);
-        nombre.setBounds(120 + (int)solicitante.getX(),250+(int)solicitante.getY(),100,40);
+        nombre.setFont(new Font("Helvetica", Font.BOLD, 15));        
+        nombre.setBounds(120 + (int)solicitante.getX(),250+(int)solicitante.getY(),200,40);
         
         panelPrincipal.add(nombre, 3);
 
