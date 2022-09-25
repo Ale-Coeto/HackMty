@@ -25,9 +25,8 @@ import javax.imageio.ImageIO;
 public class WindowResultado extends JFrame{
 
     private static JFrame frmPrincipal; 
-    private static JPanel panelPrincipal;
-    private static JPanel panelMapa;
-    private static JLabel lblTitulo, lblSolicitarA, lblMapa;
+    private static JPanel panelPrincipal, panelMapa, panelAzul, panelRojo, panelVerde;
+    private static JLabel lblTitulo, lblSolicitarA, lblMapa, lblAzul, lblRojo, lblVerde;
     private static JTextArea txtDonadores, txtDonadoresHeading;
     private static ImageIcon mapa;
     private static JButton btnClose, btnSolicitar;
@@ -59,7 +58,6 @@ public class WindowResultado extends JFrame{
 
         lblTitulo = new JLabel("Donadores:");
         lblTitulo.setBounds(100, 40, 200, 50);
-        //lblTitulo.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblTitulo.setFont(new Font("Sans-serif", Font.BOLD, 30));
         lblTitulo.setForeground(new Color(0x333333));
         panelPrincipal.add(lblTitulo);
@@ -94,8 +92,6 @@ public class WindowResultado extends JFrame{
 		btnClose.setActionCommand("newProduct");
 		panelPrincipal.add(btnClose);
 
-       
-
         btnSolicitar = new JButton("Solicitar");
         btnSolicitar.setBounds(515, 600, 120, 25);
 		btnSolicitar.addActionListener(new ActionListener(){
@@ -107,6 +103,46 @@ public class WindowResultado extends JFrame{
 		});
 		btnSolicitar.setActionCommand("newProduct");
 		panelPrincipal.add(btnSolicitar);
+
+        //indice
+        panelAzul = new JPanel();
+        panelAzul.setBounds(420, 250, 15, 15);
+		panelAzul.setBackground(Color.blue);
+        panelAzul.setLayout(null);
+        panelAzul.setVisible(true);
+		panelPrincipal.add(panelAzul);
+
+        panelRojo = new JPanel();
+        panelRojo.setBounds(420, 290, 15, 15);
+		panelRojo.setBackground(Color.red);
+        panelRojo.setLayout(null);
+        panelRojo.setVisible(true);
+		panelPrincipal.add(panelRojo);
+
+        panelVerde = new JPanel();
+        panelVerde.setBounds(420, 330, 15, 15);
+		panelVerde.setBackground(Color.green);
+        panelVerde.setLayout(null);
+        panelVerde.setVisible(true);
+		panelPrincipal.add(panelVerde);
+
+        lblAzul = new JLabel("Azul");
+        lblAzul.setBounds(440, 232, 200, 50);
+        lblAzul.setFont(new Font("Sans-serif", Font.BOLD, 15));
+        lblAzul.setForeground(new Color(0x333333));
+        panelPrincipal.add(lblAzul);
+
+        lblRojo = new JLabel("Rojo");
+        lblRojo.setBounds(440, 272, 200, 50);
+        lblRojo.setFont(new Font("Sans-serif", Font.BOLD, 15));
+        lblRojo.setForeground(new Color(0x333333));
+        panelPrincipal.add(lblRojo);
+
+        lblVerde = new JLabel("Verde");
+        lblVerde.setBounds(440, 310, 200, 50);
+        lblVerde.setFont(new Font("Sans-serif", Font.BOLD, 15));
+        lblVerde.setForeground(new Color(0x333333));
+        panelPrincipal.add(lblVerde);
        
 
         String txt = "";
