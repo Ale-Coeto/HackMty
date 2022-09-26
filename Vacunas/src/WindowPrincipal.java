@@ -7,8 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-//import org.w3c.dom.css.RGBColor;
-
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.awt.Font;
@@ -18,23 +16,19 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 
 
-
+//Pantalla principal
 public class WindowPrincipal{
     
     private static JFrame frmPrincipal; 
-    private JPanel panelPrincipal, panelDiseño1, panelCombo, panelDVacunas, panelDSolicitudes, panelDEstatus, panelDVacunas2, 
-	panelDSolicitudes2, panelDEstatus2;
-	private JLabel lblLimite, lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas,
-	lblVacunas2, lblSolicitudes2, lblEstatus2;
+    private JPanel panelPrincipal, panelDiseño1, panelCombo, panelDVacunas, panelDSolicitudes, panelDEstatus, panelDVacunas2, panelDSolicitudes2, panelDEstatus2;
+	private JLabel lblLimite, lblTitulo, lblNombreHospital, lblSolicitar, lblVacunas, lblSolicitudes, lblEstatus, lblCantVacunas,lblVacunas2, lblSolicitudes2, lblEstatus2;
 	private JComboBox<String> cbNombreHospital;
 	private JTextField tfVacunas;
 	private JButton btnSolicitar;
 	static WindowResultado frmResultado;
-	//private Font = new Font();
-
 	public static ArrayList<Hospital> listaHospitales;
 	
-    
+    //Main
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,6 +42,7 @@ public class WindowPrincipal{
 		});
 	}
 
+	//Ventana principal
 	public WindowPrincipal() {
         frmPrincipal = new JFrame();
 		frmPrincipal.setSize(1000, 700);
@@ -61,6 +56,7 @@ public class WindowPrincipal{
 		primerPanel();
 	}
 
+	//Primer panel
     public void primerPanel(){
         panelPrincipal = new JPanel();
         panelPrincipal.setBounds(0, 0, 1000, 700);
@@ -93,7 +89,6 @@ public class WindowPrincipal{
 		panelCombo.setLayout(new BorderLayout());
 		panelPrincipal.add(panelCombo);
 
-		//crearHospitales();
 		cbNombreHospital = new JComboBox<String>();
 			if(listaHospitales.size() < 1){
 				JOptionPane.showMessageDialog(frmPrincipal, "No hay hospitales disponibles.");
@@ -112,13 +107,12 @@ public class WindowPrincipal{
 				panelCombo.add(cbNombreHospital);
 				
 				lblLimite = new JLabel("");
-			lblLimite.setForeground(Color.black);
-			lblLimite.setBounds(100, 450, 500, 50);
-			lblLimite.setFont(new Font("Helvetica", Font.PLAIN, 20));
-			panelPrincipal.add(lblLimite);
+				lblLimite.setForeground(Color.black);
+				lblLimite.setBounds(100, 450, 500, 50);
+				lblLimite.setFont(new Font("Helvetica", Font.PLAIN, 20));
+				panelPrincipal.add(lblLimite);
 
-		
-
+		//Acciones cuando se selecciona un hospital
 				cbNombreHospital.addActionListener(new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -198,6 +192,8 @@ public class WindowPrincipal{
 		btnSolicitar = new JButton("Solicitar");
 		btnSolicitar.setBounds(500, 545, 150, 60);
 		btnSolicitar.setFont(new Font("Helvetica", Font.PLAIN, 20));
+
+		//Acciones cuando se da click al botón seleccionar
 		btnSolicitar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				String nombre = cbNombreHospital.getSelectedItem().toString();
@@ -252,12 +248,13 @@ public class WindowPrincipal{
 		panelPrincipal.add(panelDEstatus2);
     }
 
+	//Lista previa de hospitales
 	public static void crearHospitales(){
 		listaHospitales = new ArrayList<Hospital>();
 		Hospital h1 = new Hospital("San Nicolás", 200, 120, "Monterrey", 10, 230);
 		listaHospitales.add(h1);
 			
-		Hospital h2 = new Hospital("M. Alemán", 60, 110, "Saltillo", 100, 5.2);
+		Hospital h2 = new Hospital("M. Alemán", 60, 210, "Saltillo", 100, 5.2);
 		listaHospitales.add(h2);
 
 		Hospital h3 = new Hospital("Centro salud", 340, 300, "Monterrey", 10.4, 15);
@@ -283,14 +280,10 @@ public class WindowPrincipal{
 
 		Hospital h10 = new Hospital("Tec", 130, 20, "CD Mx", 70, 380);
 		listaHospitales.add(h10);
-
-		//ArrayList<Hospital> lista = Hospital.Solicitar(h3);
-		//System.out.println("Lista: " + lista.get(0).getNombre());
-		//System.out.println("Lista: " + lista.get(1).getNombre());
-
-		
+	
 	}
 
+	//Buscar hospitales
 	public static Hospital buscarHospital(String nombre){
 		for(int i = 0; i < listaHospitales.size(); i++) {
 			if(listaHospitales.get(i).getNombre().equals(nombre)) {
@@ -301,6 +294,7 @@ public class WindowPrincipal{
 		return null;
 	}
 
+	//Alerta
 	public static void alert(){
 		JOptionPane.showMessageDialog(frmResultado, "No hay suficientes vacunas en los hospitales de la zona.");
 	}

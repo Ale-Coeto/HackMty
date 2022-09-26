@@ -14,14 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
-
-
-
+//Ventana de resultado
 public class WindowResultado extends JFrame{
 
     private static JFrame frmPrincipal; 
@@ -32,7 +26,7 @@ public class WindowResultado extends JFrame{
     private static JButton btnClose, btnSolicitar;
 
 
-
+    //Venana resultado 
      WindowResultado(ArrayList<Hospital> donadores, Hospital solicitante){
         this.setBounds(0,0,650,700);
 		this.setLayout(null);
@@ -42,13 +36,6 @@ public class WindowResultado extends JFrame{
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.getContentPane().setBackground(Color.white);
 
-        // frmPrincipal = new JFrame();
-		// frmPrincipal.setSize(600, 500);
-		// frmPrincipal.setResizable(false);
-		// frmPrincipal.setTitle("Resultado");
-		// frmPrincipal.setForeground(Color.blue);
-		// frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
         panelPrincipal = new JPanel();
         panelPrincipal.setBounds(0, 0, 650, 700);
 		panelPrincipal.setBackground(Color.white);
@@ -72,7 +59,6 @@ public class WindowResultado extends JFrame{
         txtDonadoresHeading.setFont(new Font("Arial", Font.BOLD, 15));
         txtDonadoresHeading.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         txtDonadoresHeading.setEditable(false);
-        //txtDonadoresHeading.setBackground(new Color(0xBABABA));
         panelPrincipal.add(txtDonadoresHeading);
 
         txtDonadores = new JTextArea("");
@@ -83,6 +69,8 @@ public class WindowResultado extends JFrame{
         
         btnClose = new JButton("Atras");
         btnClose.setBounds(515, 630, 120, 25);
+
+        //Botón cerrar
 		btnClose.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,6 +82,8 @@ public class WindowResultado extends JFrame{
 
         btnSolicitar = new JButton("Solicitar");
         btnSolicitar.setBounds(515, 600, 120, 25);
+
+        //Botón seleccionar
 		btnSolicitar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,20 +136,17 @@ public class WindowResultado extends JFrame{
 
        
        
-
+        //Lista de donadores
         String txt = "";
         for(int i = 0; i < donadores.size(); i++){
             txt += donadores.get(i).getNombre() + "  \t\t  ";
-            //System.out.println("donadores " + donadores.get(i).getNombre() + " "+donadores.get(i).getX());
-            //System.out.println(solicitante.getNombre() + " s " + solicitante.getX());
-
             double distancia = Hospital.getDistancia(solicitante, donadores.get(i));
 
             distancia = Math.round(distancia*100.0)/100.0;
-            //System.out.println(Double.toString(distancia));
             txt += "   " + (Integer.toString(donadores.get(i).getDonacion())+ "\t  ");
             txt += "     " + (Double.toString(distancia) + "\n");
         }
+
 
         txtDonadores.setText(txt);
         panelPrincipal.add(txtDonadores);
@@ -170,21 +157,16 @@ public class WindowResultado extends JFrame{
         panelMapa.setLayout(null);
 		panelPrincipal.add(panelMapa);
 
-         //mapa = new ImageIcon(getClass.class.getResource("Vacunas/src/mapa.png"));
-        // BufferedImage myPicture = ImageIO.read(new File("mapa.png"));
-         //JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        // add(picLabel);
-
 		lblMapa = new JLabel("cooo");
 		lblMapa.setBounds(0, 0, 300,400);
         Image mapa = new ImageIcon(this.getClass().getResource("/mapa.png")).getImage();
-		//lblMapa.setIcon(mapa);
 
         lblMapa.setIcon(new ImageIcon(mapa.getScaledInstance(300, 400,  java.awt.Image.SCALE_SMOOTH)));
         lblMapa.setFont(new Font("Helvetica", Font.PLAIN, 30));
         lblMapa.setBackground(Color.CYAN);
 		panelMapa.add(lblMapa, 0);
 
+        //Puntos en mapa
         for (int i = 0; i < WindowPrincipal.listaHospitales.size(); i++){
         JPanel punto = new JPanel();
         punto.setBackground(Color.red);
@@ -194,7 +176,6 @@ public class WindowResultado extends JFrame{
 
         }
         
-
         for (int i= 0; i < donadores.size(); i++){
         JPanel punto = new JPanel();
         punto.setBackground(Color.blue);

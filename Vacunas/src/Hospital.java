@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Hashtable;
 
-//import org.apache.commons.math3.optim.linear.SolutionCallback;
 
 //Objeto Hospital
 public class Hospital{
